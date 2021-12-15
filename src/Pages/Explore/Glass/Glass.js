@@ -12,7 +12,7 @@ const Glass = ({product}) => {
     const {img, name, price, stock, star, key} = product;
     const navigate = useNavigate();
     const handleClick = id =>{
-        navigate(`/order/${id}`);
+        navigate(`/orderGlass/${id}`);
     }
 
 
