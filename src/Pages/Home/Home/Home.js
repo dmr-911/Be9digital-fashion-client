@@ -3,16 +3,15 @@ import './Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Banner from '../Banner/Banner';
 import Products from '../Products/Products';
-import { Container } from 'react-bootstrap';
 import Reviews from '../Reviews/Reviews';
 
 const Home = () => {
     return (
-        <Container fluid>
+        <div>
             <Banner></Banner>
             <Products></Products>
             <Reviews></Reviews>
-        </Container>
+        </div>
     );
 };
 
