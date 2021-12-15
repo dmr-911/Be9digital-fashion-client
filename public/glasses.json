@@ -1,6 +1,6 @@
 [
     {
-      "key": "glass_one",
+      "key": 1,
       "name": "Sheild",
       "price": 15,
       "sale":"15",
@@ -10,7 +10,7 @@
       "star": 4.2
     },
     {
-      "key": "glass_two",
+      "key": 2,
       "name": "Tortoiseshell",
       "price": 11.5,
       "sale":"5",
@@ -20,7 +20,7 @@
       "star": 3.8
     },
     {
-      "key": "glass_three",
+      "key": 3,
       "name": "Flip-Up",
       "price": 14.8,
       "sale":"10",
@@ -30,7 +30,7 @@
       "star": 3.2
     },
     {
-      "key": "glass_four",
+      "key": 4,
       "name": "Polarized",
       "price": 16,
       "sale":"5",
@@ -40,7 +40,7 @@
       "star": 4.6
     },
     {
-      "key": "glass_five",
+      "key": 5,
       "name": "Colored Lenses",
       "price": 6,
       "sale":"5",
@@ -50,7 +50,7 @@
       "star": 4.8
     },
     {
-      "key": "glass_six",
+      "key": 6,
       "name": "Round",
       "price": 20,
       "sale":"2.5",
@@ -60,7 +60,7 @@
       "star": 5
     },
     {
-      "key": "glass_seven",
+      "key": 7,
       "name": "Aviator",
       "price": 20,
       "sale":"7",
@@ -70,7 +70,7 @@
       "star": 5
     },
     {
-      "key": "glass_eight",
+      "key": 8,
       "name": "Hexagonal",
       "price": 25,
       "sale":"5",
@@ -80,7 +80,7 @@
       "star": 5
     },
     {
-      "key": "glass_nine",
+      "key": 9,
       "name": "Square ",
       "price": 12,
       "sale":"15",
@@ -90,7 +90,7 @@
       "star": 3.7
     },
     {
-      "key": "glass_ten",
+      "key": 10,
       "name": "Octagonal",
       "price": 8,
       "sale":"6",

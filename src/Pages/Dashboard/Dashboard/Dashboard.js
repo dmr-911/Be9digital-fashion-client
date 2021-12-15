@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -8,14 +8,16 @@ const Dashboard = () => {
         <Container fluid>
             <Row xs={1} md={2} className="my-3">
                 <Col xs={12} md={3} className="dashboard-heading">
-                <p><NavLink to="" className="dash-link">Payments</NavLink></p><br/>
-                    <p><NavLink to="" className="dash-link">Review</NavLink></p><br/>
-                    <p><NavLink to="" className="dash-link">Add Product</NavLink></p><br/>
-                    <p><NavLink to="" className="dash-link">My Orders</NavLink></p><br/>
-                    <p><NavLink to="" className="dash-link">All Orders</NavLink></p><br/>
-                    <p><NavLink to="" className="dash-link">Manage All Products</NavLink></p><br/>
+                    <p><Link to="payment" className="dash-link">Payments</Link></p><br/>
+                    <p><Link to="review" className="dash-link">Review</Link></p><br/>
+                    <p><Link to="addProduct" className="dash-link">Add Product</Link></p><br/>
+                    <p><Link to="myOrders" className="dash-link">My Orders</Link></p><br/>
+                    <p><Link to="allOrders" className="dash-link">All Orders</Link></p><br/>
+                    <p><Link to="allOrders" className="dash-link">Manage All Products</Link></p><br/>
                 </Col>
-                <Col xs={12} md={8}></Col>
+                <Col xs={12} md={8}>
+                <Outlet/>
+                </Col>
             </Row>
         </Container>
     );
