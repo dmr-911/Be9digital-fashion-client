@@ -4,11 +4,19 @@ import './E_product.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import Rating from 'react-rating';
+import { useNavigate } from 'react-router-dom';
 
 const E_product = ({product}) => {
     const heart = <FontAwesomeIcon icon={faHeart} />
     const cart = <FontAwesomeIcon icon={faCartPlus} />
-    const {img, name, price, stock, star} = product;
+    const {img, name, price, stock, star, key} = product;
+    const navigate = useNavigate();
+    const handleClick = id =>{
+        navigate(`/order/${id}`);
+    }
+
+
+
     return (
         <Col>
         <Card className="p-3">
@@ -41,7 +49,7 @@ const E_product = ({product}) => {
                     </div>
                 </div>
             </Card.Text>
-            <button className="btn-products"><span className="me-2">{cart}</span>Order Now</button>
+            <button className="btn-products" onClick={()=>handleClick(key)}><span className="me-2">{cart}</span>Order Now</button>
             </Card.Body>
         </Card>
         </Col>

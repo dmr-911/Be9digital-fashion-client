@@ -1,0 +1,102 @@
+[
+    {
+      "key": "glass_one",
+      "name": "Sheild",
+      "price": 15,
+      "sale":"15",
+      "stock":"stock",
+      "img": "https://n.nordstrommedia.com/id/sr3/8afcca29-0a4e-4fc5-bbcc-b37ead56ddc4.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=780&h=1196",
+      "desc": "Shield sunglasses are a lifesaver during the summer. Why? The frames surround the entire eye area and offer more coverage from the bright rays—BUT they can also take up almost half your face. Experiment with this shape in black with minimal details because a bright color or embellishments might look a bit overpowering.",
+      "star": 4.2
+    },
+    {
+      "key": "glass_two",
+      "name": "Tortoiseshell",
+      "price": 11.5,
+      "sale":"5",
+      "stock":"stock",
+      "img": "https://media.istockphoto.com/photos/pair-of-plastic-tortoise-shell-tinted-sunglasses-picture-id503712578?k=20&m=503712578&s=612x612&w=0&h=ZkhzeepTJ88QlfwBbLU38XxwHx073scIwzI1uVAF3i0=",
+      "desc": "The marbled pattern goes with basically anything because it has various neutral black and brown shades. If you’re looking for an everyday pair, this one is a great go-to.",
+      "star": 3.8
+    },
+    {
+      "key": "glass_three",
+      "name": "Flip-Up",
+      "price": 14.8,
+      "sale":"10",
+      "stock":"stock",
+      "img": "https://images.ctfassets.net/ncnq848d2exm/7EUzUUxVfHMzRRpCRT43hx/9b91aa128308d7851e7c77857dda8461/amsterdam-matt-black-peach-mirrored-02angular-web.jpg?fl=progressive&q=60&w=600",
+      "desc": "Thanks to their metal accents and flip-up lenses, these frames have a cool retro vibe. And they’re really the best of both worlds: Flip them down when you’re outside and up when you’re indoors. Some clips are even sold separately so they attach to your prescription glasses",
+      "star": 3.2
+    },
+    {
+      "key": "glass_four",
+      "name": "Polarized",
+      "price": 16,
+      "sale":"5",
+      "stock":"sold",
+      "img": "https://www.dukpion.com/pub/media/catalog/product/cache/17e84cfa1e07297e383b8a9827847ed8/d/k/dk02506_59_17_140-1670_tk_2_.jpg",
+      "desc": "If sunglasses are more than a pretty accessory for you, you’ll want to get a polarized pair. They block out harsh light, protect from bright glares, minimize eyestrain, and provide more clarity, among other features.",
+      "star": 4.6
+    },
+    {
+      "key": "glass_five",
+      "name": "Colored Lenses",
+      "price": 6,
+      "sale":"5",
+      "stock":"stock",
+      "img": "https://media.gq.com/photos/60f83a36f53b0e92ce6a8c53/master/w_2000,h_1333,c_limit/Ray-Ban-RB3447-Evolve-Metal-Everglasses-sunglasses.jpg",
+      "desc": "Who doesn’t want to see life through rose-colored glasses, literally?  The pretty tint works with every skin tone and adds just the right  amount of color to any look without going overboard. The soft gold rim brightens your face and is super light to wear all day.",
+      "star": 4.8
+    },
+    {
+      "key": "glass_six",
+      "name": "Round",
+      "price": 20,
+      "sale":"2.5",
+      "stock":"sold",
+      "img": "https://m.media-amazon.com/images/I/513N5eVygVL._UY550_.jpg",
+      "desc": "Channel your inner ’70s disco queen and style these round ones with your OTT festival attire—or really any other outfit because this shape is one that never goes out of style.",
+      "star": 5
+    },
+    {
+      "key": "glass_seven",
+      "name": "Aviator",
+      "price": 20,
+      "sale":"7",
+      "stock":"stock",
+      "img": "https://images.thdstatic.com/productImages/6bf97df0-9694-4916-9d33-297252793cc1/svn/shadedeye-safety-glasses-sunglasses-85901-16-64_600.jpg",
+      "desc": "No, they’re not just for police officers. The less severe D-shaped lenses make this pair more wearable, and the saturated bottle green hue feels fresh. An added bonus: The delicate gold rim lends just the right amount of bling.",
+      "star": 5
+    },
+    {
+      "key": "glass_eight",
+      "name": "Hexagonal",
+      "price": 25,
+      "sale":"5",
+      "stock":"stock",
+      "img": "https://cdn.shopify.com/s/files/1/0054/0262/4088/products/LFL1010C2SUN_2_89ecf645-c0ad-494b-8b18-8bca27d512a0_720x.jpg?v=1572618248",
+      "desc": "For those who feel that round or square lenses are too harsh for your face shape, try hexagonal styles. They tend to be less extreme and work with most face angles. This subtle yellow pair is a nice neutral piece to style with any outfit.",
+      "star": 5
+    },
+    {
+      "key": "glass_nine",
+      "name": "Square ",
+      "price": 12,
+      "sale":"15",
+      "stock":"stock",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHW_l06tbncNL0fq_UEXr6S3QJejtS4yzskw&usqp=CAU",
+      "desc": "Square sunglasses offer versatility, classical style and above all, mystery. American Vogue editor Anna Wintour is famed for her dark square frames, which she wears to almost every fashion show she attends. ",
+      "star": 3.7
+    },
+    {
+      "key": "glass_ten",
+      "name": "Octagonal",
+      "price": 8,
+      "sale":"6",
+      "stock":"sold",
+      "img": "https://avvenice.com/34935-thickbox_default/versace-sunglasses-versace-octagon-v-vintage-black-sunglasses-versace-eyewear.jpg",
+      "desc": "Octagonal sunglasses provide frames of a square and circle hybrid and are somewhat retro in style, offering a glam 70s aesthetic. They are designed to add contour and structure to the angles of your face for a very flattering look.",
+      "star": 4.1
+    }
+  ]

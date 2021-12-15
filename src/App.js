@@ -11,6 +11,7 @@ import NotFound from './Pages/NotFound/NotFound';
 import Login from './Pages/Login/Login';
 import Explore from './Pages/Explore/Explore/Explore';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+import OrderProduct from './Pages/OrderProduct/OrderProduct';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/about" element={<Home></Home>}></Route>
           <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
           <Route path="/logIn" element={<Login></Login>}></Route>
+          <Route path="/order/:id" element={<OrderProduct></OrderProduct>}></Route>
           <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>
       <Footer></Footer>
