@@ -10,13 +10,14 @@ const E_products = () => {
         .then(res => res.json())
         .then(data => setProducts(data))
     },[]);
+    console.log(products);
 
     return (
         <Container>
             <h2>E_products</h2>
              <Row xs={1} md={4} className="g-4">
                {
-                   products.map(product => <E_product
+                  products && products.map(product => <E_product
                    key={product.key}
                    product={product}
                    ></E_product>)
