@@ -7,10 +7,10 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import Dashboard from './Pages/Dashboard/Dashboard';
 import NotFound from './Pages/NotFound/NotFound';
 import Login from './Pages/Login/Login';
 import Explore from './Pages/Explore/Explore/Explore';
+import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 
 function App() {
   return (

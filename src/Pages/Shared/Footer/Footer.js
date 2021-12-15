@@ -16,7 +16,7 @@ const Footer = () => {
   };
     return (
       <>
-        <Container fluid className="bg-dark text-white py-5">
+        <Container fluid className="footer-text text-white py-5">
           <Row xs={1} md={4}>
             <Col>
               <div className="d-flex align-items-center justify-content-center mb-3">
