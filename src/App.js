@@ -10,6 +10,7 @@ import {
 import Dashboard from './Pages/Dashboard/Dashboard';
 import NotFound from './Pages/NotFound/NotFound';
 import Login from './Pages/Login/Login';
+import Explore from './Pages/Explore/Explore/Explore';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>
           <Route path="/home" element={<Home></Home>}></Route>
-          <Route path="/explore" element={<Home></Home>}></Route>
+          <Route path="/explore" element={<Explore></Explore>}></Route>
           <Route path="/about" element={<Home></Home>}></Route>
           <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
           <Route path="/logIn" element={<Login></Login>}></Route>
