@@ -16,7 +16,7 @@ const Products = () => {
         <Container>
             <div className="d-flex justify-content-between">
                 <h3>Electronic Products</h3>
-                <NavLink to="/explore">See more</NavLink>
+                <NavLink to="/explore">See all</NavLink>
             </div>
                 <Row xs={1} md={4} className="g-3">
                     {
