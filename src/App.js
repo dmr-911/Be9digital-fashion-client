@@ -12,6 +12,7 @@ import Login from './Pages/Login/Login';
 import Explore from './Pages/Explore/Explore/Explore';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import OrderProduct from './Pages/OrderProduct/OrderProduct';
+import About from './Pages/About/About';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
           <Route path="/" element={<Home></Home>}></Route>
           <Route path="/home" element={<Home></Home>}></Route>
           <Route path="/explore" element={<Explore></Explore>}></Route>
-          <Route path="/about" element={<Home></Home>}></Route>
+          <Route path="/about" element={<About></About>}></Route>
           <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
           <Route path="/logIn" element={<Login></Login>}></Route>
           <Route path="/order/:id" element={<OrderProduct></OrderProduct>}></Route>
