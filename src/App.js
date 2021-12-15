@@ -39,6 +39,7 @@ function App() {
           </Route>
           <Route path="logIn" element={<Login></Login>}></Route>
           <Route path="order/:id" element={<OrderProduct></OrderProduct>}></Route>
+          <Route path="orderGlass/:id" element={<OrderProduct></OrderProduct>}></Route>
           <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>
       <Footer></Footer>
