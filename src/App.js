@@ -20,6 +20,7 @@ import Review from './Pages/Dashboard/Review/Review';
 import AddProduct from './Pages/Dashboard/AddProduct/AddProduct';
 import ManageAllOrders from './Pages/Dashboard/ManageAllOrders/ManageAllOrders';
 import OrderGlass from './Pages/OrderGlass/OrderGlass';
+import Register from './Pages/Register/Register';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
             <Route path="allOrders" element={<ManageAllOrders></ManageAllOrders>}></Route>
           </Route>
           <Route path="logIn" element={<Login></Login>}></Route>
+          <Route path="register" element={<Register></Register>}></Route>
           <Route path="order/:id" element={<OrderProduct></OrderProduct>}></Route>
           <Route path="orderGlass/:id" element={<OrderGlass></OrderGlass>}></Route>
           <Route path="*" element={<NotFound></NotFound>}></Route>

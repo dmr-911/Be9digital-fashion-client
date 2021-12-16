@@ -1,26 +1,18 @@
 import React, { useRef } from 'react';
-import { Button, Card, Col, Container, Form } from 'react-bootstrap';
+import { Button, Card, Col, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import './Login.css';
+import './Register.css';
 
-const Login = () => {
+const Register = () => {
     const emailRef = useRef();
     const passRef = useRef();
-    const handleSubmit = () =>{
-
-    }
-    const handleGoogleSignIn = () =>{
-
-    }
+    const handleSubmit=()=>{}
     return (
         <>
-        <div
-          className="login-page py-5"
-          style={{ backgroundColor: "#394650" }}
-        >
-          <Col xs={12} md={5} className="mx-auto mt-5 mb-5">
+        <div className="bg-dark login-page pt-5">
+          <Col xs={12} md={5} className="mx-auto mt-5 pb-5">
             <Card className="p-3">
-              <h3>Log in</h3>
+              <h3>Sign Up</h3>
               <div className="divider bg-info rounded mb-3 mx-auto"></div>
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -31,7 +23,7 @@ const Login = () => {
                     ref={emailRef}
                   />
                 </Form.Group>
-  
+
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Control
                     type="password"
@@ -40,30 +32,14 @@ const Login = () => {
                     ref={passRef}
                   />
                 </Form.Group>
-                {/* {message && <small className="text-danger">{message}</small>} */}
                 <p className="fw-bold">
-                  New to our site ? Please create an account{" "}
-                  <Link to="/register">Register</Link>
+                  {/* {error ? error : 'Already an user?'} Please{" "} */}
+                  <Link to="/login">Login</Link>
                 </p>
                 <Button variant="success" type="submit">
-                  Login
+                  Sign Up
                 </Button>
               </Form>
-              <b className="my-3">Or</b>
-              <div
-                className="border border-2 border-dark rounded google-signin w-50 mx-auto py-2"
-                onClick={handleGoogleSignIn}
-              >
-                <img
-                  src="https://i.ibb.co/n6DTPm7/login-removebg-preview.png"
-                  height="30px"
-                  width="30px"
-                  alt=""
-                />
-                <span>
-                  <b> Signup With Google</b>
-                </span>
-              </div>
             </Card>
           </Col>
           <div className="divider bg-info rounded mx-auto"></div>
@@ -72,4 +48,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
