@@ -32,6 +32,7 @@ function App() {
           <Route path="explore" element={<Explore></Explore>}></Route>
           <Route path="about" element={<About></About>}></Route>
           <Route path="dashboard" element={<Dashboard></Dashboard>}>
+            <Route path="" element={<MyOrders></MyOrders>}></Route>
             <Route path="payment" element={<Payment></Payment>}></Route>
             <Route path="review" element={<Review></Review>}></Route>
             <Route path="addProduct" element={<AddProduct></AddProduct>}></Route>
