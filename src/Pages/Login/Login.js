@@ -1,17 +1,28 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button, Card, Col, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Login.css';
+import {useDispatch, useSelector} from 'react-redux';
 
 const Login = () => {
+  const [state, setState] = useState({
+    email: "",
+    password: ""
+  });
     const emailRef = useRef();
     const passRef = useRef();
-    const handleSubmit = () =>{
-
+    const handleSubmit = (e) =>{
+      e.preventDefault();
+      const newState = {
+        email: emailRef.current.value,
+        password: passRef.current.value
+      };
+      setState(newState);
     }
     const handleGoogleSignIn = () =>{
 
     }
+    console.log(state);
     return (
         <>
         <div
@@ -43,7 +54,7 @@ const Login = () => {
                 {/* {message && <small className="text-danger">{message}</small>} */}
                 <p className="fw-bold">
                   New to our site ? Please create an account{" "}
-                  <Link to="/register">Register</Link>
+                  <Link to="/register"><i className="fas fa-sign-in">Register</i></Link>
                 </p>
                 <Button variant="success" type="submit">
                   Login
@@ -54,15 +65,13 @@ const Login = () => {
                 className="border border-2 border-dark rounded google-signin w-50 mx-auto py-2"
                 onClick={handleGoogleSignIn}
               >
-                <img
-                  src="https://i.ibb.co/n6DTPm7/login-removebg-preview.png"
-                  height="30px"
-                  width="30px"
-                  alt=""
-                />
-                <span>
-                  <b> Signup With Google</b>
-                </span>
+                <i className="fab fa-google-plus-g"> Sign in with google</i>
+              </div>
+              <div
+                className="border border-2 border-dark rounded fb-signin w-50 mx-auto py-2 mt-2"
+                onClick={handleGoogleSignIn}
+              >
+                <i className="fab fa-facebook-f"> Sign in with google</i>
               </div>
             </Card>
           </Col>

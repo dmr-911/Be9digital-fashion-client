@@ -2,7 +2,11 @@ import React from 'react';
 import './CustomNav.css';
 import { Container, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { HashLink } from 'react-router-hash-link';
+import {useSelector} from 'react-redux';
+
 const CustomNav = () => {
+    const state = useSelector(state => state.addedCart);
+    console.log(state);
     return (
         <Navbar bg="light" expand="lg">
         <Container>
@@ -42,6 +46,7 @@ const CustomNav = () => {
                 aria-label="Search"
                 />
             </Form>
+            <span>Added item {state}</span>
             </Navbar.Collapse>
         </Container>
         </Navbar>

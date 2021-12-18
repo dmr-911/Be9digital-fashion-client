@@ -12,7 +12,6 @@ const OrderGlass = () => {
         .then(data => setProducts(data))
     },[]);
     const item = products.find(product => parseInt(product.key) === parseInt(id));
-    console.log(item, id);
 
     return (
         <Container>
