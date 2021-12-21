@@ -1,11 +1,14 @@
 import React from 'react';
 import './CustomNav.css';
-import { Container, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Button, Container, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { HashLink } from 'react-router-hash-link';
 import {useSelector} from 'react-redux';
+import useAuth from '../../../hooks/useAuth';
 
 const CustomNav = () => {
     const state = useSelector(state => state.addedCart);
+    const {user, logOut} = useAuth();
+
     return (
         <Navbar bg="light" expand="lg">
         <Container>
@@ -33,9 +36,14 @@ const CustomNav = () => {
                 <Nav.Link as={HashLink} to="/about">
                 About Us
                 </Nav.Link>
-                <Nav.Link as={HashLink} to="/login">
-                Login
-                </Nav.Link>
+                {
+                    user.email ?
+                    <img height="40" width="40" className='rounded-circle' src={user.photoURL} title={user.displayName} alt={`${user.displayName}'s photo`} />
+                    :
+                    <Nav.Link as={HashLink} to="/login">
+                    Login
+                    </Nav.Link>
+                }
             </Nav>
             <Form className="d-flex">
                 <FormControl
@@ -45,6 +53,9 @@ const CustomNav = () => {
                 aria-label="Search"
                 />
             </Form>
+            {
+                user.email && <Button variant="danger" onClick={logOut}>Logout</Button>
+            }
             </Navbar.Collapse>
         </Container>
         </Navbar>

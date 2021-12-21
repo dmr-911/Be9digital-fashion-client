@@ -3,8 +3,10 @@ import { Button, Card, Col, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Login.css';
 import {useDispatch, useSelector} from 'react-redux';
+import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
+  const {user, googleSignIn} = useAuth();
   const [state, setState] = useState({
     email: "",
     password: ""
@@ -20,8 +22,11 @@ const Login = () => {
       setState(newState);
     }
     const handleGoogleSignIn = () =>{
+      googleSignIn()
+      .then()
+    };
 
-    }
+    console.log(user);
     return (
         <>
         <div
@@ -70,7 +75,7 @@ const Login = () => {
                 className="border border-2 border-dark rounded fb-signin w-50 mx-auto py-2 mt-2"
                 onClick={handleGoogleSignIn}
               >
-                <i className="fab fa-facebook-f"> Sign in with google</i>
+                <i className="fab fa-facebook-f"> Sign in with Facebook</i>
               </div>
             </Card>
           </Col>
