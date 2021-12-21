@@ -21,6 +21,7 @@ import AddProduct from './Pages/Dashboard/AddProduct/AddProduct';
 import ManageAllOrders from './Pages/Dashboard/ManageAllOrders/ManageAllOrders';
 import OrderGlass from './Pages/OrderGlass/OrderGlass';
 import Register from './Pages/Register/Register';
+import OrderDetails from './Pages/OrderDetails/OrderDetails';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path="register" element={<Register></Register>}></Route>
           <Route path="order/:id" element={<OrderProduct></OrderProduct>}></Route>
           <Route path="orderGlass/:id" element={<OrderGlass></OrderGlass>}></Route>
+          <Route path="orderDetails" element={<OrderDetails></OrderDetails>}></Route>
           <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>
       <Footer></Footer>
