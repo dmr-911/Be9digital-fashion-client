@@ -10,33 +10,34 @@ const OrderDetails = () => {
     };
 
     return (
-        <div className="bg-dark login-page pt-5">
-        <img src="https://i.ibb.co/QDt4j81/logo.png" alt="" />
-        <Col xs={12} md={5} className="mx-auto mt-5">
+        <div className="bg-dark login-page py-5">
+        <Col xs={12} md={5} className="mx-auto">
           <Card className="p-3">
             <h3>Add Your Information</h3>
             <div className="divider bg-info rounded mb-3 mx-auto"></div>
             <form onSubmit={handleSubmit(onSubmit)}>
               <input
-                defaultValue={user.displayName || ""}
-                className="add-order-input"
+                // defaultValue={user.displayName || ""}
+                className="order-details-input"
                 {...register("name", { required: true })}
+                placeholder='Your name'
               />{" "}
               <br />
               <input
-                defaultValue={user.email || ""}
-                className="add-order-input"
+                // defaultValue={user.email || ""}
+                className="order-details-input"
                 {...register("email", { required: true })}
+                placeholder='Your email'
               />{" "}
               <br />
               <input
-                className="add-order-input"
+                className="order-details-input"
                 {...register("city", { required: true })}
                 placeholder="Your city"
               />{" "}
               <br />
               <input
-                className="add-order-input"
+                className="order-details-input"
                 {...register("country", { required: true })}
                 placeholder="Your county"
               />{" "}
