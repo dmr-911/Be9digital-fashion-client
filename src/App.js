@@ -22,10 +22,12 @@ import ManageAllOrders from './Pages/Dashboard/ManageAllOrders/ManageAllOrders';
 import OrderGlass from './Pages/OrderGlass/OrderGlass';
 import Register from './Pages/Register/Register';
 import OrderDetails from './Pages/OrderDetails/OrderDetails';
+import AuthProvider from './context/AuthProvider';
 
 function App() {
   return (
     <div className="App">
+      <AuthProvider>
       <Router>
       <CustomNav></CustomNav>
         <Routes>
@@ -50,6 +52,7 @@ function App() {
         </Routes>
       <Footer></Footer>
       </Router>
+    </AuthProvider>
     </div>
   );
 }
