@@ -45,7 +45,6 @@ const CustomNav = () => {
                 aria-label="Search"
                 />
             </Form>
-            <span>Added item {state}</span>
             </Navbar.Collapse>
         </Container>
         </Navbar>
