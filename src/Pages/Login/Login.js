@@ -22,7 +22,6 @@ const Login = () => {
     const handleGoogleSignIn = () =>{
 
     }
-    console.log(state);
     return (
         <>
         <div

@@ -6,7 +6,6 @@ import {useSelector} from 'react-redux';
 
 const CustomNav = () => {
     const state = useSelector(state => state.addedCart);
-    console.log(state);
     return (
         <Navbar bg="light" expand="lg">
         <Container>

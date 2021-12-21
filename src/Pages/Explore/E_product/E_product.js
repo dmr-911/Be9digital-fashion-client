@@ -18,7 +18,7 @@ const E_product = ({product}) => {
         navigate(`/order/${id}`);
     };
     const dispatch = useDispatch();
-    const actions = bindActionCreators(actionCreators, dispatch);
+    const {cartItem} = bindActionCreators(actionCreators, dispatch);
 
     return (
         <Col>
@@ -52,7 +52,7 @@ const E_product = ({product}) => {
                     </div>
                 </div>
             </Card.Text>
-            <button className="btn-products my-3" onClick={()=> actions.addItem(1)}><span className="me-2">{cart}</span>Add to Cart</button>
+            <button className="btn-products my-3" onClick={()=>cartItem(1)}><span className="me-2">{cart}</span>Add to Cart</button>
             <button className="btn-products" onClick={()=>handleClick(key)}><span className="me-2">{cart}</span>Order Now</button>
             </Card.Body>
         </Card>

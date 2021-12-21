@@ -16,7 +16,7 @@ export const withdrawMoney = (amount) =>{
     }
 };
 
-export const addItem = (amount) =>{
+export const cartItem = (amount) =>{
     return (dispatch) =>{
         dispatch({
             type: 'add',
