@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Card, Col } from 'react-bootstrap';
+import { Card, Col, Modal } from 'react-bootstrap';
 import './OrderDetails.css';
 import useAuth from '../../hooks/useAuth';
 import useProducts from '../../hooks/useProducts';
 import { useNavigate, useParams } from 'react-router-dom';
+import OrderModal from '../OrderModal/OrderModal';
 
 const OrderDetails = () => {
     const {user} = useAuth();
@@ -15,6 +16,8 @@ const OrderDetails = () => {
     const initialInfo = { buyerName: user.displayName, email: user.email, phone: '' };
     const [purchaseInfo, setPurchaseInfo] = useState(initialInfo);
     const navigate = useNavigate();
+
+    const [modalShow, setModalShow] = useState(false);
 
     const handleOnBlur = e => {
       const field = e.target.name;
@@ -30,6 +33,7 @@ const OrderDetails = () => {
     const order = {
         ...purchaseInfo,
         product: matchedItem?.name,
+        id: id,
         price: Math.ceil(parseFloat(matchedItem?.price) - parseFloat(matchedItem?.price) * (5 / 100)),
         date: date.toLocaleDateString(),
         status: 'pending',
@@ -46,8 +50,7 @@ const OrderDetails = () => {
         .then(res => res.json())
         .then(resultData => {
             if (resultData.insertedId) {
-                // handleShow();
-                navigate('/payment')
+                setModalShow(true);
             }
         });
 }
@@ -67,6 +70,11 @@ const OrderDetails = () => {
                 <input type="submit" value="Submit" className="purchase-input btn-danger" />
             </form>
           </Card>
+        <OrderModal
+          id={id} 
+          show={modalShow} 
+          onHide={() => setModalShow(false)}
+        ></OrderModal>
         </Col>
         <div className="divider bg-info rounded mt-4 mx-auto"></div>
       </div>
