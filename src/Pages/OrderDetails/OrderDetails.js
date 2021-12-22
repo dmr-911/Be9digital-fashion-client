@@ -1,17 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import './OrderDetails.css';
 import useAuth from '../../hooks/useAuth';
+import useProducts from '../../hooks/useProducts';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const OrderDetails = () => {
     const {user} = useAuth();
     const {id} = useParams();
+    const [products, setProducts] = useState();
+    useEffect(()=>{
+        fetch('http://localhost:5000/e_products')
+        .then(res => res.json())
+        .then(data => setProducts(data))
+    },[]);
     const navigate = useNavigate();
     const { register, handleSubmit, reset } = useForm();
-    const [details, setDetails] = useState({displayName: user.displayName, email: user.email, city: '', country: ''});
+    const [details, setDetails] = useState({displayName: user.displayName, email: user.email, city: '', country: '', productName: '', price: 0});
+    const product = products?.find(pd=> pd.key === id);
+    
     const onSubmit = data =>{
+      data.info = product;
       data.payment = '';
       setDetails(data);
       fetch('http://localhost:5000/order', {
@@ -22,11 +32,11 @@ const OrderDetails = () => {
         body: JSON.stringify(details)
       })
       .then(
-        navigate('/payment')
+        // navigate('/payment')
       )
     };
+    // console.log(product);
     console.log(details);
-    console.log(id);
 
     return (
         <div className="bg-dark login-page py-5">
