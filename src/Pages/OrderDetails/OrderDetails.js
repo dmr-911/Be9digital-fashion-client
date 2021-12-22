@@ -18,6 +18,7 @@ const OrderDetails = () => {
     const navigate = useNavigate();
 
     const [modalShow, setModalShow] = useState(false);
+    const [newOrder, setNewOrder] = useState({});
 
     const handleOnBlur = e => {
       const field = e.target.name;
@@ -37,8 +38,9 @@ const OrderDetails = () => {
         price: Math.ceil(parseFloat(matchedItem?.price) - parseFloat(matchedItem?.price) * (5 / 100)),
         date: date.toLocaleDateString(),
         status: 'pending',
-        payment: 'not paid'
+        payment: ''
     };
+    setNewOrder(order);
     // send to the server
     fetch('http://localhost:5000/orders', {
         method: 'POST',
@@ -53,7 +55,8 @@ const OrderDetails = () => {
                 setModalShow(true);
             }
         });
-}
+};
+
 
     return (
         <div className="bg-dark login-page py-5">
@@ -67,11 +70,11 @@ const OrderDetails = () => {
                 <input name="phone" type="number" className="purchase-input" onBlur={handleOnBlur} placeholder="Phone" />
                 <input name="city" type="text" className="purchase-input" onBlur={handleOnBlur} placeholder="City" />
                 <input name="country" type="text" className="purchase-input" onBlur={handleOnBlur} placeholder="Country" />
-                <input type="submit" value="Submit" className="purchase-input btn-danger" />
+                <input type="submit" value="Purchase" className="purchase-input btn-danger" />
             </form>
           </Card>
         <OrderModal
-          id={id} 
+          order = {newOrder}
           show={modalShow} 
           onHide={() => setModalShow(false)}
         ></OrderModal>

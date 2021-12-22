@@ -2,23 +2,23 @@ import React from 'react';
 import { Card, Col } from 'react-bootstrap';
 import './E_product.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart, faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import Rating from 'react-rating';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import {actionCreators} from '../../../state/index';
+// import { useDispatch } from 'react-redux';
+// import { bindActionCreators } from 'redux';
+// import {actionCreators} from '../../../state/index';
 
 const E_product = ({product}) => {
-    const heart = <FontAwesomeIcon icon={faHeart} />
+    // const heart = <FontAwesomeIcon icon={faHeart} />
     const cart = <FontAwesomeIcon icon={faCartPlus} />
     const {img, name, price, stock, star, key} = product;
     const navigate = useNavigate();
     const handleClick = id =>{
         navigate(`/order/${id}`);
     };
-    const dispatch = useDispatch();
-    const {cartItem} = bindActionCreators(actionCreators, dispatch);
+    // const dispatch = useDispatch();
+    // const {cartItem} = bindActionCreators(actionCreators, dispatch);
 
     return (
         <Col>
@@ -52,7 +52,6 @@ const E_product = ({product}) => {
                     </div>
                 </div>
             </Card.Text>
-            <button className="btn-products my-3" onClick={()=>cartItem(1)}><span className="me-2">{cart}</span>Add to Cart</button>
             <button className="btn-products" onClick={()=>handleClick(key)}><span className="me-2">{cart}</span>Order Now</button>
             </Card.Body>
         </Card>
