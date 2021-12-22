@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Card, Col } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
 import './OrderDetails.css';
 import useAuth from '../../hooks/useAuth';
 import useProducts from '../../hooks/useProducts';
@@ -9,7 +8,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 const OrderDetails = () => {
     const {user} = useAuth();
     const {id} = useParams();
-    // const [products, setProducts] = useState();
     const {products} = useProducts();
     const matchedItem = products?.find(product => product.key === id);
 
@@ -17,7 +15,6 @@ const OrderDetails = () => {
     const initialInfo = { buyerName: user.displayName, email: user.email, phone: '' };
     const [purchaseInfo, setPurchaseInfo] = useState(initialInfo);
     const navigate = useNavigate();
-    const { register, handleSubmit, reset } = useForm();
 
     const handleOnBlur = e => {
       const field = e.target.name;
@@ -50,6 +47,7 @@ const OrderDetails = () => {
         .then(resultData => {
             if (resultData.insertedId) {
                 // handleShow();
+                navigate('/payment')
             }
         });
 }
