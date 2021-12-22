@@ -47,7 +47,7 @@ function App() {
           <Route path="register" element={<Register></Register>}></Route>
           <Route path="order/:id" element={<OrderProduct></OrderProduct>}></Route>
           <Route path="orderGlass/:id" element={<OrderGlass></OrderGlass>}></Route>
-          <Route path="orderDetails" element={<OrderDetails></OrderDetails>}></Route>
+          <Route path="orderDetails/:id" element={<OrderDetails></OrderDetails>}></Route>
           <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>
       <Footer></Footer>

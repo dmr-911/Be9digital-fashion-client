@@ -15,7 +15,7 @@ const OrderProduct = () => {
     },[]);
     const item = products.find(product => product.key === id);
     const handleClick = () =>{
-        navigate('/orderDetails')
+        navigate(`/orderDetails/${id}`)
     }
 
     return (
