@@ -38,7 +38,7 @@ const CustomNav = () => {
                 </Nav.Link>
                 {
                     user.email ?
-                    <img height="40" width="40" className='rounded-circle' src={user.photoURL} title={user.displayName} alt={`${user.displayName}'s photo`} />
+                    <img height="40" width="40" className='rounded-circle' src={user.photoURL} title={user.displayName} alt="" />
                     :
                     <Nav.Link as={HashLink} to="/login">
                     Login

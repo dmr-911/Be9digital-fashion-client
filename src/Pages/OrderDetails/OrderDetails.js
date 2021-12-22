@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import './OrderDetails.css';
+import useAuth from '../../hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 const OrderDetails = () => {
+    const {user} = useAuth();
+    const navigate = useNavigate();
     const { register, handleSubmit, reset } = useForm();
+    const [details, setDetails] = useState({displayName: user.displayName, email: user.email, city: '', country: ''});
     const onSubmit = data =>{
-
+      data.payment = '';
+      setDetails(data);
+      fetch('http://localhost:5000/order', {
+        method: 'POST',
+        headers: {
+          'content-type' : 'application/json'
+        },
+        body: JSON.stringify(details)
+      })
+      .then(
+        navigate('/payment')
+      )
     };
+    console.log(details);
 
     return (
         <div className="bg-dark login-page py-5">
@@ -17,17 +34,23 @@ const OrderDetails = () => {
             <div className="divider bg-info rounded mb-3 mx-auto"></div>
             <form onSubmit={handleSubmit(onSubmit)}>
               <input
-                // defaultValue={user.displayName || ""}
+                defaultValue={user.displayName || ""}
                 className="order-details-input"
                 {...register("name", { required: true })}
                 placeholder='Your name'
               />{" "}
               <br />
               <input
-                // defaultValue={user.email || ""}
+                defaultValue={user.email || ""}
                 className="order-details-input"
                 {...register("email", { required: true })}
                 placeholder='Your email'
+              />{" "}
+              <br />
+              <input
+                className="order-details-input"
+                {...register("phone", { required: true })}
+                placeholder='Your phone number'
               />{" "}
               <br />
               <input
