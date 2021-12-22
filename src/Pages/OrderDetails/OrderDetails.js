@@ -9,34 +9,50 @@ import { useNavigate, useParams } from 'react-router-dom';
 const OrderDetails = () => {
     const {user} = useAuth();
     const {id} = useParams();
-    const [products, setProducts] = useState();
-    useEffect(()=>{
-        fetch('http://localhost:5000/e_products')
-        .then(res => res.json())
-        .then(data => setProducts(data))
-    },[]);
+    // const [products, setProducts] = useState();
+    const {products} = useProducts();
+    const matchedItem = products?.find(product => product.key === id);
+
+    const date = new Date();
+    const initialInfo = { buyerName: user.displayName, email: user.email, phone: '' };
+    const [purchaseInfo, setPurchaseInfo] = useState(initialInfo);
     const navigate = useNavigate();
     const { register, handleSubmit, reset } = useForm();
-    const [details, setDetails] = useState({displayName: user.displayName, email: user.email, city: '', country: '', productName: '', price: 0});
-    const product = products?.find(pd=> pd.key === id);
+
+    const handleOnBlur = e => {
+      const field = e.target.name;
+      const value = e.target.value;
+      const newInfo = { ...purchaseInfo };
+      newInfo[field] = value;
+      setPurchaseInfo(newInfo);
+  }
     
-    const onSubmit = data =>{
-      data.info = product;
-      data.payment = '';
-      setDetails(data);
-      fetch('http://localhost:5000/order', {
+  const handlePurchase = e => {
+    e.preventDefault();
+    // collect data
+    const order = {
+        ...purchaseInfo,
+        product: matchedItem?.name,
+        price: Math.ceil(parseFloat(matchedItem?.price) - parseFloat(matchedItem?.price) * (5 / 100)),
+        date: date.toLocaleDateString(),
+        status: 'pending',
+        payment: 'not paid'
+    };
+    // send to the server
+    fetch('http://localhost:5000/orders', {
         method: 'POST',
         headers: {
-          'content-type' : 'application/json'
+            'content-type': 'application/json'
         },
-        body: JSON.stringify(details)
-      })
-      .then(
-        // navigate('/payment')
-      )
-    };
-    // console.log(product);
-    console.log(details);
+        body: JSON.stringify(order)
+    })
+        .then(res => res.json())
+        .then(resultData => {
+            if (resultData.insertedId) {
+                // handleShow();
+            }
+        });
+}
 
     return (
         <div className="bg-dark login-page py-5">
@@ -44,40 +60,13 @@ const OrderDetails = () => {
           <Card className="p-3">
             <h3>Add Your Information</h3>
             <div className="divider bg-info rounded mb-3 mx-auto"></div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <input
-                defaultValue={user.displayName || ""}
-                className="order-details-input"
-                {...register("name", { required: true })}
-                placeholder='Your name'
-              />{" "}
-              <br />
-              <input
-                defaultValue={user.email || ""}
-                className="order-details-input"
-                {...register("email", { required: true })}
-                placeholder='Your email'
-              />{" "}
-              <br />
-              <input
-                className="order-details-input"
-                {...register("phone", { required: true })}
-                placeholder='Your phone number'
-              />{" "}
-              <br />
-              <input
-                className="order-details-input"
-                {...register("city", { required: true })}
-                placeholder="Your city"
-              />{" "}
-              <br />
-              <input
-                className="order-details-input"
-                {...register("country", { required: true })}
-                placeholder="Your county"
-              />{" "}
-              <br />
-              <input type="submit" value="Proceed" />
+            <form onSubmit={handlePurchase}>
+                <input name="name" defaultValue={user.displayName} type="text" className="purchase-input" onBlur={handleOnBlur} placeholder="Name" />
+                <input name="email" defaultValue={user.email} type="email" className="purchase-input" onBlur={handleOnBlur} placeholder="email" />
+                <input name="phone" type="number" className="purchase-input" onBlur={handleOnBlur} placeholder="Phone" />
+                <input name="city" type="text" className="purchase-input" onBlur={handleOnBlur} placeholder="City" />
+                <input name="country" type="text" className="purchase-input" onBlur={handleOnBlur} placeholder="Country" />
+                <input type="submit" value="Submit" className="purchase-input btn-danger" />
             </form>
           </Card>
         </Col>

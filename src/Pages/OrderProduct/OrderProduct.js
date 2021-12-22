@@ -17,7 +17,6 @@ const OrderProduct = () => {
     const handleClick = () =>{
         navigate(`/orderDetails/${id}`)
     };
-    console.log(item);
 
     return (
         <Container>
