@@ -3,10 +3,11 @@ import { Card, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import './OrderDetails.css';
 import useAuth from '../../hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const OrderDetails = () => {
     const {user} = useAuth();
+    const {id} = useParams();
     const navigate = useNavigate();
     const { register, handleSubmit, reset } = useForm();
     const [details, setDetails] = useState({displayName: user.displayName, email: user.email, city: '', country: ''});
@@ -25,6 +26,7 @@ const OrderDetails = () => {
       )
     };
     console.log(details);
+    console.log(id);
 
     return (
         <div className="bg-dark login-page py-5">
