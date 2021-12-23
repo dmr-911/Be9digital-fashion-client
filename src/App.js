@@ -23,6 +23,7 @@ import OrderGlass from './Pages/OrderGlass/OrderGlass';
 import Register from './Pages/Register/Register';
 import OrderDetails from './Pages/OrderDetails/OrderDetails';
 import AuthProvider from './context/AuthProvider';
+import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -45,7 +46,7 @@ function App() {
           </Route>
           <Route path="logIn" element={<Login></Login>}></Route>
           <Route path="register" element={<Register></Register>}></Route>
-          <Route path="order/:id" element={<OrderProduct></OrderProduct>}></Route>
+          <Route path="order/:id" element={<PrivateRoute><OrderProduct></OrderProduct></PrivateRoute>}></Route>
           <Route path="orderGlass/:id" element={<OrderGlass></OrderGlass>}></Route>
           <Route path="orderDetails/:id" element={<OrderDetails></OrderDetails>}></Route>
           <Route path="*" element={<NotFound></NotFound>}></Route>

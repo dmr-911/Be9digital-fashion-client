@@ -1,12 +1,16 @@
 import React, { useRef, useState } from 'react';
 import { Button, Card, Col, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './Login.css';
 import {useDispatch, useSelector} from 'react-redux';
 import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
-  const {user, googleSignIn} = useAuth();
+  const {user, googleSignIn, setIsLoading} = useAuth();
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [state, setState] = useState({
     email: "",
     password: ""
@@ -22,11 +26,9 @@ const Login = () => {
       setState(newState);
     }
     const handleGoogleSignIn = () =>{
-      googleSignIn()
-      .then()
+      googleSignIn(location, navigate);
     };
 
-    console.log(user);
     return (
         <>
         <div
