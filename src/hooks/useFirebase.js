@@ -12,7 +12,7 @@ const useFirebase=()=>{
 
     const googleProvider = new GoogleAuthProvider();
 
-    const registerUser = (email, password, name, history) => {
+    const registerUser = (email, password, name, navigate) => {
       setIsLoading(true);
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -27,7 +27,7 @@ const useFirebase=()=>{
           }).then(() => {
           }).catch((error) => {
           });
-          history.replace('/');
+          navigate('/');
         })
         .catch((error) => {
           // setAuthError(error.message);
@@ -72,7 +72,7 @@ const useFirebase=()=>{
         .finally(() => setIsLoading(false));
     };
 
-    return {user, googleSignIn, logOut, isLoading, setIsLoading};
+    return {user, googleSignIn, logOut, isLoading, setIsLoading, registerUser};
 };
 
 export default useFirebase;
