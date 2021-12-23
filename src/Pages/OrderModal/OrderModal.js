@@ -37,6 +37,7 @@ const OrderModal = (props) => {
           <p><b>Give your card details below :</b></p>
         <Elements stripe={stripePromise}>
         <CheckOutForm 
+        id = {order?.id}
          price = {order?.price}
          name = {order?.buyerName}
          email = {order?.email}

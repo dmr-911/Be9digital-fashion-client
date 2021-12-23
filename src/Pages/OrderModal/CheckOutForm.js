@@ -1,13 +1,14 @@
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
-import { Button, Container } from 'react-bootstrap';
+import { Button, Container, Spinner } from 'react-bootstrap';
 
-const CheckOutForm = ({price, buyerName, email}) => {
+const CheckOutForm = ({price, buyerName, email, id}) => {
     const stripe = useStripe();
     const elements = useElements();
 
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const [process, setProcess] = useState(false);
     const [clientSecret, setClientSecret] = useState('');
 
     useEffect(()=>{
@@ -31,7 +32,7 @@ const CheckOutForm = ({price, buyerName, email}) => {
         if(!card){
             return;
         }
-
+        setProcess(true);
         const {error, paymentMethod} = await stripe.createPaymentMethod({
             type: 'card',
             card
@@ -48,7 +49,7 @@ const CheckOutForm = ({price, buyerName, email}) => {
             clientSecret,
             {
               payment_method: {
-                card: cardElement,
+                card: card,
                 billing_details: {
                   name: buyerName,
                   email: email
@@ -62,6 +63,25 @@ const CheckOutForm = ({price, buyerName, email}) => {
           }else{
               setError('');
               setSuccess('Your payment processed successfully');
+              setProcess(false);
+
+            //   save to db 
+            const payment = {
+                amount : paymentIntent.amount,
+                created : paymentIntent.created,
+                transaction : paymentIntent.client_secret.slice('_secret')[0],
+                last4 : paymentMethod.card.last4
+            };
+              const url =  `http://localhost:5000/orders/${id}`;
+              fetch(url, {
+                  method: 'PUT',
+                  headers: {
+                      'content-type' : 'application/json'
+                  },
+                  body: JSON.stringify(payment)
+              })
+              .then(res => res.json())
+              .then(data => console.log(data));
           }
     };
 
@@ -84,7 +104,14 @@ const CheckOutForm = ({price, buyerName, email}) => {
             },
           }}
         />
-        {price && <Button variant="primary" className="mx-auto mt-3" type="submit" disabled={!stripe}>Pay ${price}</Button>}
+        {
+            process ?
+            <Spinner animation="border" role="status" className="mx-auto">
+                <span className="visually-hidden">Loading...</span>
+            </Spinner>
+            :
+            price  && <Button variant="primary" className="mx-auto mt-3" type="submit" disabled={!stripe}>Pay ${price}</Button>
+        }
         {
             error && <p className='text-center fw-bold text-danger mt-3'>{error}</p>
         }
