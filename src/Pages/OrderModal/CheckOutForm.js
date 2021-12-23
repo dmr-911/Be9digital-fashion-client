@@ -1,10 +1,12 @@
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
-import { Button, Container, Spinner } from 'react-bootstrap';
+import { Button, Container, NavItem, Spinner } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const CheckOutForm = ({price, buyerName, email, id}) => {
     const stripe = useStripe();
     const elements = useElements();
+    const navigate = useNavigate();
 
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
@@ -81,7 +83,9 @@ const CheckOutForm = ({price, buyerName, email, id}) => {
                   body: JSON.stringify(payment)
               })
               .then(res => res.json())
-              .then(data => console.log(data));
+              .then(data => {
+                  navigate('/dashboard/myOrders');
+              });
           }
     };
 
@@ -110,7 +114,7 @@ const CheckOutForm = ({price, buyerName, email, id}) => {
                 <span className="visually-hidden">Loading...</span>
             </Spinner>
             :
-            price  && <Button variant="primary" className="mx-auto mt-3" type="submit" disabled={!stripe}>Pay ${price}</Button>
+            price  && <Button variant="primary" className="mx-auto mt-3" type="submit" disabled={!stripe || success}>Pay ${price}</Button>
         }
         {
             error && <p className='text-center fw-bold text-danger mt-3'>{error}</p>
