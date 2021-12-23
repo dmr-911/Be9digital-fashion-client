@@ -4,13 +4,17 @@ import { Navigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const AdminRoute = ({children, ...rest}) => {
-    const {user, isLoading} = useAuth();
+    const {user, isLoading, admin} = useAuth();
     const location = useLocation();
 
-    if(user.email) {
-        return children
-    }
-    return <Navigate to="/login" state={{from : location}}/>;
+    if(isLoading) { 
+    return (
+    <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+    </Spinner>
+  )
+  }
+  return user.email ? children : <Navigate to="/login"  state={{ from: location }}/>;
 };
 
 export default AdminRoute;

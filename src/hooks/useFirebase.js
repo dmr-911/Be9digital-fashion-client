@@ -7,6 +7,7 @@ const useFirebase=()=>{
     const auth = getAuth();
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
+    const [authError, setAuthError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
     const [admin, setAdmin] = useState(false);
 
@@ -16,10 +17,10 @@ const useFirebase=()=>{
       setIsLoading(true);
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          // setAuthError('');
+          setAuthError('');
           const newUser = { email, displayName: name };
           setUser(newUser);
-          
+
           // save user to the database
           saveUser(email, name, 'POST');
 
@@ -33,8 +34,7 @@ const useFirebase=()=>{
 
         })
         .catch((error) => {
-          // setAuthError(error.message);
-          console.log(error);
+          setAuthError(error.message);
         })
         .finally(() => setIsLoading(false));
     }
@@ -49,11 +49,11 @@ const useFirebase=()=>{
         .then((result) => {
           const user = result.user;
           saveUser(user.email, user.displayName, 'PUT');
-          // setAuthError('');
+          setAuthError('');
           const destination = location?.state?.from || '/';
           navigate(destination);
         }).catch((error) => {
-          // setAuthError(error.message);
+          setAuthError(error.message);
         }).finally(() => setIsLoading(false));
     }
 
@@ -66,6 +66,14 @@ const useFirebase=()=>{
         setIsLoading(false);
       });
     }, [auth, user]);
+
+    useEffect(() => {
+      fetch(`http://localhost:5000/users/${user.email}`)
+        .then(res => res.json())
+        .then(data => {
+          setAdmin(data.admin)
+        });
+    }, [user.email])
 
     const logOut = () => {
       setIsLoading(true);
@@ -91,7 +99,7 @@ const useFirebase=()=>{
         .then()
     }
 
-    return {user, googleSignIn, logOut, isLoading, setIsLoading, registerUser, emailSignIn};
+    return {user, googleSignIn, logOut, isLoading, setIsLoading, registerUser, emailSignIn, authError};
 };
 
 export default useFirebase;
