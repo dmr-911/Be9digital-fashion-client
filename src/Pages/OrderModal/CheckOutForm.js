@@ -1,12 +1,26 @@
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
 
-const CheckOutForm = ({price}) => {
+const CheckOutForm = ({price, buyerName, email}) => {
     const stripe = useStripe();
     const elements = useElements();
 
     const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+    const [clientSecret, setClientSecret] = useState('');
+
+    useEffect(()=>{
+        fetch('http://localhost:5000/create-payment-intent',{
+            method: 'POST',
+            headers:{
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify({price})
+        })
+        .then(res => res.json())
+        .then(data => setClientSecret(data.clientSecret))
+    },[price]);
 
     const handleSubmit = async(e) =>{
         e.preventDefault();
@@ -23,10 +37,32 @@ const CheckOutForm = ({price}) => {
             card
         });
         if(error){
-            setError(error.message)
+            setError(error.message);
+            setSuccess('');
         }else{
-            setError('')
+            setError('');
         }
+
+        // payment intent
+        const {paymentIntent, error : intentError} = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+              payment_method: {
+                card: cardElement,
+                billing_details: {
+                  name: buyerName,
+                  email: email
+                },
+              },
+            },
+          );
+          if(intentError){
+              setError(intentError.message);
+              setSuccess('');
+          }else{
+              setError('');
+              setSuccess('Your payment processed successfully');
+          }
     };
 
     return (
@@ -48,9 +84,12 @@ const CheckOutForm = ({price}) => {
             },
           }}
         />
-        <Button variant="primary" className="mx-auto mt-3" type="submit" disabled={!stripe}>Pay ${price}</Button>
+        {price && <Button variant="primary" className="mx-auto mt-3" type="submit" disabled={!stripe}>Pay ${price}</Button>}
         {
             error && <p className='text-center fw-bold text-danger mt-3'>{error}</p>
+        }
+        {
+            success && <p className='text-center fw-bold text-success mt-3'>{success}</p>
         }
       </form>
       </Container>
