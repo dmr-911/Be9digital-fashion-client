@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Button, Card, Col, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import './Register.css';

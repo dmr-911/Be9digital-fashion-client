@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Button, Card, Col, Container, Form } from 'react-bootstrap';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './Login.css';
@@ -6,33 +6,41 @@ import {useDispatch, useSelector} from 'react-redux';
 import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
-  const {user, googleSignIn, setIsLoading} = useAuth();
+  const {user, googleSignIn, setIsLoading, emailSignIn} = useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
+  const destination = location?.state?.from || '/';
 
-  const [state, setState] = useState({
+  const [loginDetails, setLoginDetails] = useState({
     email: "",
     password: ""
   });
-    const emailRef = useRef();
-    const passRef = useRef();
-    const handleSubmit = (e) =>{
-      e.preventDefault();
-      const newState = {
-        email: emailRef.current.value,
-        password: passRef.current.value
-      };
-      setState(newState);
+    const handleOnBlur = (e) =>{
+      const field = e.target.name;
+      const value = e.target.value;
+      const newState = {...loginDetails};
+      newState[field] = value;
+      setLoginDetails(newState);
     }
     const handleGoogleSignIn = () =>{
       googleSignIn(location, navigate);
     };
 
+    const handleSubmit = (e) =>{
+      e.preventDefault();
+      emailSignIn(loginDetails.email, loginDetails.password)
+      .then(user =>{
+        navigate(destination);
+      })
+    }
+
+
+
     return (
         <>
         <div
-          className="login-page py-5"
+          className="login-page bg-dark py-5"
           style={{ backgroundColor: "#394650" }}
         >
           <Col xs={12} md={5} className="mx-auto mt-5 mb-5">
@@ -42,19 +50,21 @@ const Login = () => {
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Control
+                    name="email"
                     type="email"
                     placeholder="Enter email"
                     className="border border-1 border-dark"
-                    ref={emailRef}
+                    onBlur={handleOnBlur}
                   />
                 </Form.Group>
   
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Control
+                    name="password"
                     type="password"
                     placeholder="Password"
                     className="border border-1 border-dark"
-                    ref={passRef}
+                    onBlur={handleOnBlur}
                   />
                 </Form.Group>
                 {/* {message && <small className="text-danger">{message}</small>} */}
