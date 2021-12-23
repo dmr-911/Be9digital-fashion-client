@@ -1,5 +1,5 @@
 import initializationAuthentication from "../Firebase/firebase.init";
-import { signInWithEmailAndPassword, GoogleAuthProvider, getAuth, signInWithPopup, onAuthStateChanged, signOut, createUserWithEmailAndPassword,  updateProfile  } from "firebase/auth";
+import { signInWithEmailAndPassword, getIdToken, GoogleAuthProvider, getAuth, signInWithPopup, onAuthStateChanged, signOut, createUserWithEmailAndPassword,  updateProfile  } from "firebase/auth";
 import { useEffect, useState } from "react";
 
 initializationAuthentication();
@@ -10,6 +10,7 @@ const useFirebase=()=>{
     const [authError, setAuthError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
     const [admin, setAdmin] = useState(false);
+    const [token, setToken] = useState('');
 
     const googleProvider = new GoogleAuthProvider();
 
@@ -61,7 +62,13 @@ const useFirebase=()=>{
       onAuthStateChanged(auth, (user) => {
         if (user) {
           setUser(user);
-        } else {
+          getIdToken(user)
+          .then(idToken =>{
+            setToken(idToken);
+          })
+        } 
+        else {
+          setUser({})
         }
         setIsLoading(false);
       });
@@ -99,7 +106,7 @@ const useFirebase=()=>{
         .then()
     }
 
-    return {user, googleSignIn, logOut, isLoading, setIsLoading, registerUser, emailSignIn, authError};
+    return {user, token, googleSignIn, logOut, isLoading, setIsLoading, registerUser, emailSignIn, authError, admin};
 };
 
 export default useFirebase;

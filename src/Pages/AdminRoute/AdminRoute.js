@@ -1,9 +1,10 @@
 import React from 'react';
+import { Spinner } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
-const AdminRoute = ({children, ...rest}) => {
+const AdminRoute = ({children}) => {
     const {user, isLoading, admin} = useAuth();
     const location = useLocation();
 
@@ -14,7 +15,7 @@ const AdminRoute = ({children, ...rest}) => {
     </Spinner>
   )
   }
-  return user.email ? children : <Navigate to="/login"  state={{ from: location }}/>;
+  return user.email && admin ? children : <Navigate to="/"  state={{ from: location }}/>;
 };
 
 export default AdminRoute;

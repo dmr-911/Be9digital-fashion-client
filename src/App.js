@@ -24,6 +24,8 @@ import Register from './Pages/Register/Register';
 import OrderDetails from './Pages/OrderDetails/OrderDetails';
 import AuthProvider from './context/AuthProvider';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
+import AdminRoute from './Pages/AdminRoute/AdminRoute';
+import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 
 function App() {
   return (
@@ -40,15 +42,16 @@ function App() {
             <Route path="" element={<MyOrders></MyOrders>}></Route>
             <Route path="payment" element={<Payment></Payment>}></Route>
             <Route path="review" element={<Review></Review>}></Route>
-            <Route path="addProduct" element={<AddProduct></AddProduct>}></Route>
+            <Route path="addProduct" element={<AdminRoute><AddProduct></AddProduct></AdminRoute>}></Route>
             <Route path="myOrders" element={<MyOrders></MyOrders>}></Route>
-            <Route path="allOrders" element={<ManageAllOrders></ManageAllOrders>}></Route>
+            <Route path="allOrders" element={<AdminRoute><ManageAllOrders></ManageAllOrders></AdminRoute>}></Route>
+            <Route path="makeAdmin" element={<AdminRoute><MakeAdmin></MakeAdmin></AdminRoute>}></Route>
           </Route>
           <Route path="logIn" element={<Login></Login>}></Route>
           <Route path="register" element={<Register></Register>}></Route>
           <Route path="order/:id" element={<PrivateRoute><OrderProduct></OrderProduct></PrivateRoute>}></Route>
-          <Route path="orderGlass/:id" element={<OrderGlass></OrderGlass>}></Route>
-          <Route path="orderDetails/:id" element={<OrderDetails></OrderDetails>}></Route>
+          <Route path="orderGlass/:id" element={<PrivateRoute><OrderGlass></OrderGlass></PrivateRoute>}></Route>
+          <Route path="orderDetails/:id" element={<PrivateRoute><OrderDetails></OrderDetails></PrivateRoute>}></Route>
           <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>
       <Footer></Footer>
