@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 import './MakeAdmin.css';
@@ -56,9 +56,6 @@ const MakeAdmin = () => {
                     </Modal.Footer>
                 </Modal>
             </form>
-            {/* {
-                success && 
-            } */}
         </div>
     );
 };
