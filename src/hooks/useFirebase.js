@@ -1,5 +1,5 @@
 import initializationAuthentication from "../Firebase/firebase.init";
-import { GoogleAuthProvider, getAuth, signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithPopup, onAuthStateChanged, signOut, createUserWithEmailAndPassword,  updateProfile  } from "firebase/auth";
 import { useEffect, useState } from "react";
 
 initializationAuthentication();
@@ -8,11 +8,33 @@ const useFirebase=()=>{
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
+    const [admin, setAdmin] = useState(false);
 
     const googleProvider = new GoogleAuthProvider();
-    // const googleSignIn = () => {
-    //     return signInWithPopup(auth, googleProvider);
-    // }
+
+    const registerUser = (email, password, name, history) => {
+      setIsLoading(true);
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // setAuthError('');
+          const newUser = { email, displayName: name };
+          setUser(newUser);
+          // save user to the database
+          // saveUser(email, name, 'POST');
+          // send name to firebase after creation
+          updateProfile(auth.currentUser, {
+            displayName: name
+          }).then(() => {
+          }).catch((error) => {
+          });
+          history.replace('/');
+        })
+        .catch((error) => {
+          // setAuthError(error.message);
+          console.log(error);
+        })
+        .finally(() => setIsLoading(false));
+    }
 
     const googleSignIn = (location, navigate) => {
       setIsLoading(true);
