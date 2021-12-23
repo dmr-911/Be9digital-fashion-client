@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import './OrderModal.css';
 import {loadStripe} from '@stripe/stripe-js';
 import CheckOutForm from './CheckOutForm';
@@ -9,8 +9,6 @@ const stripePromise = loadStripe('pk_test_51K9d3AE0hh98LK9HQpsFdTzGrB2w5c6y2hjlt
 
 const OrderModal = (props) => {
     const {order} = props;
-    const {product, price, date, email , buyerName, phone} = props?.order;
-    console.log(props.order);
     return (
     <Modal
         {...props}
@@ -36,13 +34,12 @@ const OrderModal = (props) => {
           </p>
           <p><b>Phone :</b> {order?.phone}</p>
           <p><b>Email :</b> {order?.email}</p>
-        </Modal.Body>
-        <Modal.Footer>
         <Elements stripe={stripePromise}>
-        <CheckOutForm />
+        <CheckOutForm 
+         price = {order?.price}
+        />
         </Elements>
-          <Button className="mx-auto">Place Order</Button>
-        </Modal.Footer>
+        </Modal.Body>
       </Modal>
     );
 };
