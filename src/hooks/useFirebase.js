@@ -24,7 +24,7 @@ const useFirebase=()=>{
     },[]);
 
     const logOut = () => {
-        // setIsLoading(true);
+        setIsLoading(true);
         signOut(auth)
           .then(() => {
             setUser({});
@@ -35,7 +35,7 @@ const useFirebase=()=>{
           .finally(() => setIsLoading(false));
       };
 
-    return {user, googleSignIn, logOut};
+    return {user, googleSignIn, logOut, isLoading};
 };
 
 export default useFirebase;
