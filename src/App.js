@@ -26,6 +26,7 @@ import AuthProvider from './context/AuthProvider';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import AdminRoute from './Pages/AdminRoute/AdminRoute';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
+import ManageProducts from './Pages/Dashboard/ManageProducts/ManageProducts';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
             <Route path="addProduct" element={<AdminRoute><AddProduct></AddProduct></AdminRoute>}></Route>
             <Route path="myOrders" element={<MyOrders></MyOrders>}></Route>
             <Route path="allOrders" element={<AdminRoute><ManageAllOrders></ManageAllOrders></AdminRoute>}></Route>
+            <Route path="manageProducts" element={<AdminRoute><ManageProducts></ManageProducts></AdminRoute>}></Route>
             <Route path="makeAdmin" element={<AdminRoute><MakeAdmin></MakeAdmin></AdminRoute>}></Route>
           </Route>
           <Route path="logIn" element={<Login></Login>}></Route>

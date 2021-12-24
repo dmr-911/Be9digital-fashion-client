@@ -45,9 +45,10 @@ const Review = () => {
             });
     }
     return (
-        <div>
-            <h4>Review page</h4>
-            <Form className="w-50 mx-auto text-start mb-5" onSubmit={handleSubmit}>
+        <div className="bg-dark text-white">
+            <h4 className="pt-3">Review page</h4>
+            <div className="divider bg-info rounded mb-3 mx-auto"></div>
+            <Form className="w-50 mx-auto text-start pb-5" onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>Your Name</Form.Label>
                     <Form.Control name="name" onBlur={handleBlur} type="text" placeholder="Your Name" />

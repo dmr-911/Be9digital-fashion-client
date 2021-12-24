@@ -51,6 +51,7 @@ const CheckOutForm = ({price, buyerName, email, id}) => {
             clientSecret,
             {
               payment_method: {
+                payment: 'paid',
                 card: card,
                 billing_details: {
                   name: buyerName,

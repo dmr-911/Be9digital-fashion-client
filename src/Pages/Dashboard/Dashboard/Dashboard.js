@@ -14,7 +14,7 @@ const Dashboard = () => {
                     <p><Link to="makeAdmin" className="dash-link">Make Admin</Link></p><br/>
                     <p><Link to="myOrders" className="dash-link">My Orders</Link></p><br/>
                     <p><Link to="allOrders" className="dash-link">All Orders</Link></p><br/>
-                    <p><Link to="allOrders" className="dash-link">Manage All Products</Link></p><br/>
+                    <p><Link to="manageProducts" className="dash-link">Manage All Products</Link></p><br/>
                 </Col>
                 <Col xs={12} md={8}>
                 <Outlet/>
