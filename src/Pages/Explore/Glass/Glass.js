@@ -28,7 +28,7 @@ const Glass = ({product}) => {
                     <span className="far fa-heart favorite"></span>
                 </div>
             </Card.Text>
-            <Card.Img variant="top" src={img} height="140" />
+            <Card.Img variant="top" src={img.startsWith('http') ? img : `data:image/png;base64,${img}`} height="140" />
             <Card.Body>
             <Card.Title>{name.slice(0,24)}</Card.Title>
             <Card.Text>
