@@ -27,22 +27,23 @@ const ManageAllOrders = () => {
 
     };
     const handleApprove = id => {
-        // const update = { status: "shipped" }
-        // fetch(`https://sleepy-shore-83397.herokuapp.com/myOrders/approve/${id}`, {
-        //     method: 'PUT',
-        //     headers: {
-        //         "content-type": "application/json"
-        //     },
-        //     body: JSON.stringify(update)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         fetch("https://sleepy-shore-83397.herokuapp.com/orders")
-        //             .then((res) => res.json())
-        //             .then((data) => setMyOrders(data));
-        //     }
-        //     )
+        const update = { status: "shipped" }
+        fetch(`http://localhost:5000/approve/${id}`, {
+            method: 'PUT',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(update)
+        })
+            .then(res => res.json())
+            .then(data => {
+                fetch("http://localhost:5000/orders")
+                    .then((res) => res.json())
+                    .then((data) => setMyOrders(data));
+            }
+            )
     };
+
     return (
         <div>
         <h5>Manage All Orders</h5>
@@ -54,7 +55,7 @@ const ManageAllOrders = () => {
                     <th>Product Name</th>
                     <th>Price</th>
                     <th>Ordered Time</th>
-                    <th>Payment</th>
+                    <th>Last 4 digits</th>
                     <th>Status</th>
                     <th></th>
                     <th></th>
@@ -68,7 +69,7 @@ const ManageAllOrders = () => {
                         <td>{order.product}</td>
                         <td>{order.price}</td>
                         <td>{order.date}</td>
-                        <td>{order.pay?.length && <p className="text-white">paid</p>}</td>
+                        <td>{order.payment?.created ? 'Paid' : 'Not paid'}</td>
                         <td>{order.status}</td>
                         {
                             order.status === 'shipped' ?
