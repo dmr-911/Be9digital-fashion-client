@@ -31,7 +31,11 @@ const ManageProducts = () => {
                ></ElectricProducts>)
            }
            {
-               glasses.map(glass => <GlassProduct></GlassProduct>)
+               glasses.map(glass => <GlassProduct
+                key={glass._id}
+                glass ={glass}
+                
+               ></GlassProduct>)
            }
            </Row>
        </div>
