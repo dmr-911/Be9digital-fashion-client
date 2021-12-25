@@ -4,6 +4,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './Login.css';
 // import {useDispatch, useSelector} from 'react-redux';
 import useAuth from '../../hooks/useAuth';
+import GoogleButton from 'react-google-button';
 
 const Login = () => {
   const { googleSignIn, emailSignIn} = useAuth();
@@ -77,18 +78,7 @@ const Login = () => {
                 </Button>
               </Form>
               <b className="my-3">Or</b>
-              <div
-                className="border border-2 border-dark rounded google-signin w-50 mx-auto py-2"
-                onClick={handleGoogleSignIn}
-              >
-                <i className="fab fa-google-plus-g"> Sign in with google</i>
-              </div>
-              <div
-                className="border border-2 border-dark rounded fb-signin w-50 mx-auto py-2 mt-2"
-                onClick={handleGoogleSignIn}
-              >
-                <i className="fab fa-facebook-f"> Sign in with Facebook</i>
-              </div>
+              <GoogleButton className="mx-auto my-2" onClick={handleGoogleSignIn}/>
             </Card>
           </Col>
           <div className="divider bg-info rounded mx-auto"></div>

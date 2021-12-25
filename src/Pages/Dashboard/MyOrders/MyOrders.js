@@ -12,6 +12,24 @@ const MyOrders = () => {
             .then(data => setMyOrders(data))
     }, [user.email]);
 
+    const handleCancel = (id) => {
+        const update = { status: "cancelled" }
+        const uri = `http://localhost:5000/myOrders/cancel/${id}`;
+        fetch(uri, {
+            method: "PUT",
+            headers:{
+                "content-type" : "application/json"
+            },
+            body: JSON.stringify(update)
+        })
+        .then( res => res.json() )
+        .then(data => {
+            fetch(`http://localhost:5000/orders?email=${user.email}`)
+            .then(res => res.json())
+            .then(data => setMyOrders(data))
+        })
+    };
+
     const handleDelete = (id) => {
         const proceed = window.confirm('Confirm delete your order?')
         if (proceed) {
@@ -57,12 +75,7 @@ const MyOrders = () => {
                             <td>{order.payment?.created ? 'Paid' : 'Not paid'}</td>
                             <td>{order.status}</td>
                             <td><Button variant="primary" disabled={order.payment?.created}>Pay</Button></td>
-                            {
-                                order.status === 'shipped' ?
-                                    <td><Button variant="warning" disabled>Cancel</Button></td>
-                                    :
-                                    <td><Button onClick={() => handleDelete(order._id)} variant="warning">Cancel</Button></td>
-                            }
+                            <td><Button onClick={() => handleCancel(order._id)} variant="warning" disabled={order.status === 'shipped' || order.status === 'cancelled'}>Cancel</Button></td>
                             <td><Button variant="danger" onClick={() => handleDelete(order._id)}>Delete</Button></td>
                         </tr>)
                             :
