@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Row, Table } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 import ElectricProducts from './ElectricProduct';
+import GlassProduct from './GlassProduct';
 import './ManageProducts.css';
 
 const ManageProducts = () => {
@@ -28,6 +29,9 @@ const ManageProducts = () => {
                key={eProduct._id}
                eProduct = {eProduct}
                ></ElectricProducts>)
+           }
+           {
+               glasses.map(glass => <GlassProduct></GlassProduct>)
            }
            </Row>
        </div>
