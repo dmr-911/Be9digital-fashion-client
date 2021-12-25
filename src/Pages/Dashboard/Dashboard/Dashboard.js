@@ -7,8 +7,7 @@ const Dashboard = () => {
     return (
         <Container fluid>
             <Row xs={1} md={2} className="my-3">
-                <Col xs={12} md={3} className="dashboard-heading">
-                    <p><Link to="payment" className="dash-link">Payments</Link></p><br/>
+                <Col xs={12} md={3} className="dashboard-heading sticky-top">
                     <p><Link to="review" className="dash-link">Review</Link></p><br/>
                     <p><Link to="addProduct" className="dash-link">Add Product</Link></p><br/>
                     <p><Link to="makeAdmin" className="dash-link">Make Admin</Link></p><br/>
