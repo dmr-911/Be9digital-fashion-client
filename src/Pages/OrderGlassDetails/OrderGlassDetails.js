@@ -9,7 +9,7 @@ const OrderGlassDetails = () => {
     const {user} = useAuth();
     const {id} = useParams();
     const {glasses} = useGlasses();
-    const matchedItem = glasses?.find(product => product.key === id);
+    const matchedItem = glasses?.find(product => parseInt(product.key) === parseInt(id));
 
     const date = new Date();
     const initialInfo = { buyerName: user.displayName, email: user.email, phone: '' };
@@ -40,21 +40,21 @@ const OrderGlassDetails = () => {
     };
     setNewOrder(order);
     // // send to the server
-    // fetch('http://localhost:5000/orders', {
-    //     method: 'POST',
-    //     headers: {
-    //         'content-type': 'application/json'
-    //     },
-    //     body: JSON.stringify(order)
-    // })
-    //     .then(res => res.json())
-    //     .then(resultData => {
-    //         if (resultData.insertedId) {
-    //             setModalShow(true);
-    //         }
-    //     });
+    fetch('http://localhost:5000/orders', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(order)
+    })
+        .then(res => res.json())
+        .then(resultData => {
+            if (resultData.insertedId) {
+                setModalShow(true);
+            }
+        });
 };
-console.log('matchedItem', matchedItem);
+
 
     return (
         <div className="bg-dark login-page py-5">
