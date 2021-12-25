@@ -4,6 +4,7 @@ import useProducts from '../../../hooks/useProducts';
 import { Spinner } from 'react-bootstrap';
 import ElectricProducts from '../../Dashboard/ManageProducts/ElectricProduct';
 import NewProducts from '../NewProducts/NewProducts';
+import ElectricProducts from '../E_products/ElectricProducts';
 
 const Explore = () => {
     const {products} = useProducts();
