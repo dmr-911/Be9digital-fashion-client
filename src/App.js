@@ -27,6 +27,7 @@ import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import AdminRoute from './Pages/AdminRoute/AdminRoute';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 import ManageProducts from './Pages/Dashboard/ManageProducts/ManageProducts';
+import OrderGlassDetails from './Pages/OrderGlassDetails/OrderGlassDetails';
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
           <Route path="order/:id" element={<PrivateRoute><OrderProduct></OrderProduct></PrivateRoute>}></Route>
           <Route path="orderGlass/:id" element={<PrivateRoute><OrderGlass></OrderGlass></PrivateRoute>}></Route>
           <Route path="orderDetails/:id" element={<PrivateRoute><OrderDetails></OrderDetails></PrivateRoute>}></Route>
+          <Route path="orderGlassDetails/:id" element={<PrivateRoute><OrderGlassDetails></OrderGlassDetails></PrivateRoute>}></Route>
           <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>
       <Footer></Footer>

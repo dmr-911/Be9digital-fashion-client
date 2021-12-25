@@ -23,9 +23,11 @@ const OrderProduct = () => {
             <h2>Product details</h2>
             {
                 !item ?
-                <div className="mx-auto" style={{height: '90vh'}}>
+                <div className="d-flex justify-content-center align-items-center" style={{height: '90vh'}}>
+                    <div>
                     <Spinner animation="grow" size="sm" />
                     <Spinner animation="grow" />
+                    </div>
                 </div>
                 :
             <Row xs={1} md={2} className="g-0">

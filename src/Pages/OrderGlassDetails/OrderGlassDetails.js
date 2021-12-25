@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { Card, Col, Modal } from 'react-bootstrap';
-import './OrderDetails.css';
-import useAuth from '../../hooks/useAuth';
-import useProducts from '../../hooks/useProducts';
+import { Card, Col } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+import useGlasses from '../../hooks/useGlasses';
 import OrderModal from '../OrderModal/OrderModal';
 
-const OrderDetails = () => {
+const OrderGlassDetails = () => {
     const {user} = useAuth();
     const {id} = useParams();
-    const {products} = useProducts();
+    const {products} = useGlasses();
     const matchedItem = products?.find(product => product.key === id);
 
     const date = new Date();
@@ -58,7 +57,6 @@ const OrderDetails = () => {
         });
 };
 
-
     return (
         <div className="bg-dark login-page py-5">
         <Col xs={12} md={5} className="mx-auto">
@@ -85,4 +83,4 @@ const OrderDetails = () => {
     );
 };
 
-export default OrderDetails;
+export default OrderGlassDetails;
