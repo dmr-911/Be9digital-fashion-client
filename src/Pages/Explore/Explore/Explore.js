@@ -1,8 +1,8 @@
 import React from 'react';
-import E_products from '../E_products/E_products';
 import Glasses from '../Glasses/Glasses';
 import useProducts from '../../../hooks/useProducts';
 import { Spinner } from 'react-bootstrap';
+import ElectricProducts from '../../Dashboard/ManageProducts/ElectricProduct';
 
 const Explore = () => {
     const {products} = useProducts();
@@ -11,7 +11,7 @@ const Explore = () => {
             {
                 products ?
                 <>
-                <E_products></E_products>
+                <ElectricProducts></ElectricProducts>
                 <Glasses></Glasses>
                 </>
                 :

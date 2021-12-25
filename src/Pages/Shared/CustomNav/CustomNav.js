@@ -2,11 +2,11 @@ import React from 'react';
 import './CustomNav.css';
 import { Button, Container, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { HashLink } from 'react-router-hash-link';
-import {useSelector} from 'react-redux';
+// import {useSelector} from 'react-redux';
 import useAuth from '../../../hooks/useAuth';
 
 const CustomNav = () => {
-    const state = useSelector(state => state.addedCart);
+    // const state = useSelector(state => state.addedCart);
     const {user, logOut} = useAuth();
 
     return (

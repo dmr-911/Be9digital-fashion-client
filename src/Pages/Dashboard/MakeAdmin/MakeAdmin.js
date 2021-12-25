@@ -10,7 +10,7 @@ const MakeAdmin = () => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const [success, setSuccess] = useState(false);
+    // const [success, setSuccess] = useState(false);
 
     const handleOnBlur = e => {
         setEmail(e.target.value);
@@ -30,7 +30,7 @@ const MakeAdmin = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount) {
-                    setSuccess(true);
+                    // setSuccess(true);
                     handleShow();
                     setEmail('');
                 }

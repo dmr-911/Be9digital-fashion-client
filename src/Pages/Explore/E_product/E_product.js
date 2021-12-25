@@ -7,7 +7,7 @@ import Rating from 'react-rating';
 import { useNavigate } from 'react-router-dom';
 
 
-const E_product = ({product}) => {
+const ElectricProduct = ({product}) => {
     const cart = <FontAwesomeIcon icon={faCartPlus} />
     const {img, name, price, stock, star, key} = product;
     const navigate = useNavigate();
@@ -54,4 +54,4 @@ const E_product = ({product}) => {
     );
 };
 
-export default E_product;
+export default ElectricProduct;

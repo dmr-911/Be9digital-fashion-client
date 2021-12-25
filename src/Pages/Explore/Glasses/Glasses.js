@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Spinner } from 'react-bootstrap';
-import E_product from '../E_product/E_product';
 import './Glasses.css';
 import useProducts from '../../../hooks/useProducts';
+import ElectricProduct from '../E_product/E_product';
 
 const Glasses = () => {
     const {products} = useProducts();
@@ -18,10 +18,10 @@ const Glasses = () => {
             <h3>Glasses</h3>
             <Row xs={1} md={4}>
                 {
-                    products ? items.map(item => <E_product
+                    products ? items.map(item => <ElectricProduct
                     key={item.key}
                     product={item}
-                    ></E_product>)
+                    ></ElectricProduct>)
                     :
                     <div className="d-flex justify-content-center align-items-center w-100" style={{height: '80vh'}}>
                     <div>

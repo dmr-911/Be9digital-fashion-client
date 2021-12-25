@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Modal } from 'react-bootstrap';
 import './OrderModal.css';
 import {loadStripe} from '@stripe/stripe-js';

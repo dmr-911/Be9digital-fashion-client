@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Row, Table } from 'react-bootstrap';
-import useAuth from '../../../hooks/useAuth';
+import { Row } from 'react-bootstrap';
 import ElectricProducts from './ElectricProduct';
 import GlassProduct from './GlassProduct';
 import './ManageProducts.css';

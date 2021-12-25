@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import './Products.css';
-import E_product from '../../Explore/E_product/E_product';
+import ElectricProduct from '../../Explore/E_product/E_product';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -20,10 +20,10 @@ const Products = () => {
             </div>
                 <Row xs={1} md={4} className="g-3">
                     {
-                        products.map(product => <E_product
+                        products.map(product => <ElectricProduct
                         key={product.key}
                         product={product}
-                        ></E_product>)
+                        ></ElectricProduct>)
                     }
                 </Row>
         </Container>

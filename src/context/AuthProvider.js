@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React from 'react';
 import useFirebase from '../hooks/useFirebase';
 
 export const MarketContext = React.createContext();

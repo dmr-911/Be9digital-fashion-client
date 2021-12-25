@@ -4,8 +4,7 @@ import useAuth from '../../../hooks/useAuth';
 import './AddProduct.css';
 
 const AddOrder = () => {
-    const {isLoading, admin} = useAuth();
-    const [product, setProduct] = useState({});
+    const {isLoading} = useAuth();
 
     const [name, setName] = useState('');
     const [price, setPrice] = useState(0);
@@ -14,21 +13,12 @@ const AddOrder = () => {
     const [shipping, setShipping] = useState(0);
     const [img, setImg] = useState(null);
 
-    const handleOnBlur = (e) =>{
-        const field = e.target.name;
-        const value = e.target.value;
-        const newProduct = {...product};
-        newProduct[field] = value;
-        setProduct(newProduct);
-    };
-
     const handleAddItem = e => {
         e.preventDefault();
         const key = name + Math.round(10000*Math.random());
         if(!img){
             return;
         }
-        product.img = img;
         const formData = new FormData();
         formData.append('key', key)
         formData.append('name', name);

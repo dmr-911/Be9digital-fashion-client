@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Col} from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import Rating from 'react-rating';
 import useAuth from '../../../hooks/useAuth';
 
@@ -14,8 +12,7 @@ const ElectricProducts = ({eProduct}) => {
             .then(data => setProducts(data))
     }, [user.email]);
 
-    const cart = <FontAwesomeIcon icon={faCartPlus} />
-    const {img, name, price, stock, star, key, _id} = eProduct;
+    const {img, name, price, stock, star, _id} = eProduct;
     const handleDelete = id =>{
         const proceed = window.confirm('Delete this product?')
         if (proceed) {

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Button, Card, Col, Container, Form } from 'react-bootstrap';
+import { Button, Card, Col, Form } from 'react-bootstrap';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './Login.css';
-import {useDispatch, useSelector} from 'react-redux';
+// import {useDispatch, useSelector} from 'react-redux';
 import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
-  const {user, googleSignIn, setIsLoading, emailSignIn} = useAuth();
+  const { googleSignIn, emailSignIn} = useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();

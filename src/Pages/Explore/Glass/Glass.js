@@ -2,12 +2,11 @@ import React from 'react';
 import { Card, Col } from 'react-bootstrap';
 import './Glass.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart, faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import Rating from 'react-rating';
 import { useNavigate } from 'react-router-dom';
 
 const Glass = ({product}) => {
-    const heart = <FontAwesomeIcon icon={faHeart} />
     const cart = <FontAwesomeIcon icon={faCartPlus} />
     const {img, name, price, stock, star, key} = product;
     const navigate = useNavigate();

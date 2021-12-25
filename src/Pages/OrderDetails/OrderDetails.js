@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Card, Col, Modal } from 'react-bootstrap';
+import { Card, Col } from 'react-bootstrap';
 import './OrderDetails.css';
 import useAuth from '../../hooks/useAuth';
 import useProducts from '../../hooks/useProducts';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import OrderModal from '../OrderModal/OrderModal';
 
 const OrderDetails = () => {
@@ -15,7 +15,6 @@ const OrderDetails = () => {
     const date = new Date();
     const initialInfo = { buyerName: user.displayName, email: user.email, phone: '' };
     const [purchaseInfo, setPurchaseInfo] = useState(initialInfo);
-    const navigate = useNavigate();
 
     const [modalShow, setModalShow] = useState(false);
     const [newOrder, setNewOrder] = useState({});
@@ -53,7 +52,7 @@ const OrderDetails = () => {
         .then(resultData => {
             if (resultData.insertedId) {
                 setModalShow(true);
-                navigate('dashboard/myOrders')
+                // navigate('/dashboard/myOrders')
             }
         });
 };

@@ -12,7 +12,7 @@ const GlassProduct = ({glass}) => {
             .then(data => setGlasses(data))
     }, [user.email]);
 
-    const {img, name, price, stock, star, key, _id} = glass;
+    const {img, name, price, stock, star, _id} = glass;
     const handleDelete = id =>{
         const proceed = window.confirm('Delete this product?')
         if (proceed) {

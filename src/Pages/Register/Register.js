@@ -7,7 +7,6 @@ import useAuth from '../../hooks/useAuth';
 const Register = () => {
   const {isLoading, error, registerUser} = useAuth();
   const [registerData, setRegisterData] = useState({});
-  const [isMatched, setIsMatched] = useState(true)
   const navigation = useNavigate();
     
   const handleOnBlur = (e) => {
@@ -20,13 +19,12 @@ const Register = () => {
 
     const handleRegisterSubmit=(e)=>{
       e.preventDefault();
-      console.log(registerData);
       if(registerData.password !== registerData.password2){
-        setIsMatched(false);
         return
       }
       registerUser(registerData.email, registerData.password, registerData.name, navigation)
-    }
+    };
+
     return (
       <>
       <div className="bg-dark login-page pt-5">

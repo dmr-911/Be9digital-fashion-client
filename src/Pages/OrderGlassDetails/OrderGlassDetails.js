@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card, Col } from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import useGlasses from '../../hooks/useGlasses';
 import OrderModal from '../OrderModal/OrderModal';
@@ -8,14 +8,12 @@ import OrderModal from '../OrderModal/OrderModal';
 const OrderGlassDetails = () => {
     const {user} = useAuth();
     const {id} = useParams();
-    const {products} = useGlasses();
-    const matchedItem = products?.find(product => product.key === id);
+    const {glasses} = useGlasses();
+    const matchedItem = glasses?.find(product => product.key === id);
 
     const date = new Date();
     const initialInfo = { buyerName: user.displayName, email: user.email, phone: '' };
     const [purchaseInfo, setPurchaseInfo] = useState(initialInfo);
-    const navigate = useNavigate();
-
     const [modalShow, setModalShow] = useState(false);
     const [newOrder, setNewOrder] = useState({});
 
@@ -29,33 +27,34 @@ const OrderGlassDetails = () => {
     
   const handlePurchase = e => {
     e.preventDefault();
+    console.log(matchedItem);
     // collect data
     const order = {
         ...purchaseInfo,
         product: matchedItem?.name,
         id: id,
-        price: Math.ceil(parseFloat(matchedItem?.price) - parseFloat(matchedItem?.price) * (5 / 100)),
+        price: parseInt(Math.ceil(parseFloat(matchedItem?.price) - parseFloat(matchedItem?.price) * (5 / 100))),
         date: date.toLocaleDateString(),
         status: 'pending',
         payment: ''
     };
     setNewOrder(order);
-    // send to the server
-    fetch('http://localhost:5000/orders', {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(order)
-    })
-        .then(res => res.json())
-        .then(resultData => {
-            if (resultData.insertedId) {
-                setModalShow(true);
-                navigate('dashboard/myOrders')
-            }
-        });
+    // // send to the server
+    // fetch('http://localhost:5000/orders', {
+    //     method: 'POST',
+    //     headers: {
+    //         'content-type': 'application/json'
+    //     },
+    //     body: JSON.stringify(order)
+    // })
+    //     .then(res => res.json())
+    //     .then(resultData => {
+    //         if (resultData.insertedId) {
+    //             setModalShow(true);
+    //         }
+    //     });
 };
+console.log('matchedItem', matchedItem);
 
     return (
         <div className="bg-dark login-page py-5">

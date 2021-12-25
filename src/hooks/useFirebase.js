@@ -106,7 +106,7 @@ const useFirebase=()=>{
         .then()
     }
 
-    return {user, token, googleSignIn, logOut, isLoading, setIsLoading, registerUser, emailSignIn, authError, admin};
+    return {user, error, token, googleSignIn, logOut, isLoading, setIsLoading, registerUser, emailSignIn, authError, admin};
 };
 
 export default useFirebase;

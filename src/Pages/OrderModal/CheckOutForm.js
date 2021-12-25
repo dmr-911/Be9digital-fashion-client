@@ -1,6 +1,6 @@
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
-import { Button, Container, NavItem, Spinner } from 'react-bootstrap';
+import { Button, Container, Spinner } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 const CheckOutForm = ({price, buyerName, email, id}) => {
@@ -31,7 +31,7 @@ const CheckOutForm = ({price, buyerName, email, id}) => {
             return;
         }
         const card = elements.getElement(CardElement);
-        if(!card){
+        if(card === null){
             return;
         }
         setProcess(true);
@@ -51,7 +51,6 @@ const CheckOutForm = ({price, buyerName, email, id}) => {
             clientSecret,
             {
               payment_method: {
-                payment: 'paid',
                 card: card,
                 billing_details: {
                   name: buyerName,
