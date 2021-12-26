@@ -17,7 +17,7 @@
     color: white;
     border-color: #ed1c24;
     padding: 8px 25px;
-    border-radius: 3px;
+    border-radius: 30px;
     transition: all .3s ease-in;
 }
 .btn-products:hover{

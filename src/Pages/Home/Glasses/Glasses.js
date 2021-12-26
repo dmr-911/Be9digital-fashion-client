@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Spinner } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import Glass from '../../Explore/Glass/Glass';
@@ -21,10 +21,17 @@ const Glasses = () => {
             <p className="text-secondary mb-5">We are offering most interesting things for nice and affordable prices. Check it out. </p>
                 <Row xs={1} md={4} className="g-3">
                     {
-                        products.map(product => <Glass
+                       products ? products.map(product => <Glass
                         key={product.key}
                         product={product}
                         ></Glass>)
+                        :
+                        <div className="d-flex justify-content-center align-items-center w-100" style={{height: '80vh'}}>
+                        <div>
+                        <Spinner animation="grow" size="sm" />
+                        <Spinner animation="grow" />
+                        </div>
+                      </div>
                     }
                 </Row>
                 <button as={HashLink} onClick={handleClick} className="btn-banner d-inline mt-5">See all</button>
