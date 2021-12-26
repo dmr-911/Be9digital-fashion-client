@@ -28,6 +28,8 @@ import AdminRoute from './Pages/AdminRoute/AdminRoute';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 import ManageProducts from './Pages/Dashboard/ManageProducts/ManageProducts';
 import OrderGlassDetails from './Pages/OrderGlassDetails/OrderGlassDetails';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 function App() {
   return (

@@ -6,8 +6,8 @@ import './Review.css';
 const Review = ({review}) => {
     const {name, rating, comment} = review;
     return (
-        <Col>
-        <Card className="p-3 review-card">
+        <Col className="px-3">
+        <Card className="px-3 review-card">
             <Card.Body>
             <Card.Title>{name.slice(0,24)}</Card.Title>
             <Card.Text>
@@ -21,7 +21,7 @@ const Review = ({review}) => {
                                 />
                             </small>
                         </p>
-                        <p>{comment}</p>
+                        <p title={comment}>{comment.slice(0,21)}...</p>
                 </div>
             </Card.Text>
             </Card.Body>

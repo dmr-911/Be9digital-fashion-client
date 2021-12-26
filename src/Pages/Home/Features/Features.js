@@ -5,7 +5,8 @@ import './Features.css';
 const Features = () => {
     return (
         <Container className="mb-5">
-            <h1 className="fw-bold my-5">Core features for <span className="text-danger">Super</span> users</h1>
+            <h1 className="fw-bold mt-5">Core features for <span className="text-danger">Super</span> users</h1>
+            <p className="text-secondary mb-5">Following reasons show advantages of adding Be9digital market to your lead pages, demos and checkouts</p>
             <Row xs={1} md={3} lg={4}>
                 <Col>
                 <Card className="p-3 digital-cart feature-card">
