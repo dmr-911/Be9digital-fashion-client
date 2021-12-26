@@ -1,11 +1,16 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import Typewriter from 'typewriter-effect';
 import './Banner.css';
 
 const Banner = () => {
-    const handleClick =() =>{};
+    const navigate = useNavigate();
+    const handleClick =() =>{
+        navigate('/explore');
+    };
+    
     return (
         <Container fluid id="banner">
             <Row md={2} xs={1} className="h-100">
