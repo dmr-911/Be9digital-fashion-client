@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Spinner, Table } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
+import OrderModal from '../../OrderModal/OrderModal';
 import './MyOrders.css';
 
 const MyOrders = () => {
     const { user } = useAuth();
     const [myOrders, setMyOrders] = useState([]);
+    const [modalShow, setModalShow] = useState(false);
+
     useEffect(() => {
         fetch(`https://be9digital-market.herokuapp.com/orders?email=${user.email}`)
             .then(res => res.json())
@@ -74,9 +77,14 @@ const MyOrders = () => {
                             <td>{order.date}</td>
                             <td>{order.payment?.created ? 'Paid' : 'Not paid'}</td>
                             <td>{order.status}</td>
-                            <td><Button variant="primary" disabled={order.payment?.created}>Pay</Button></td>
+                            <td><Button onClick={()=> setModalShow(true)} variant="primary" disabled={order.payment?.created}>Pay</Button></td>
                             <td><Button onClick={() => handleCancel(order._id)} variant="warning" disabled={order.status === 'shipped' || order.status === 'cancelled'}>Cancel</Button></td>
                             <td><Button variant="danger" onClick={() => handleDelete(order._id)}>Delete</Button></td>
+                            <OrderModal
+                            order = {order}
+                            show={modalShow} 
+                            onHide={() => setModalShow(false)}
+                            ></OrderModal>
                         </tr>)
                             :
                             <>
