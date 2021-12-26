@@ -11,7 +11,7 @@ const NewProduct = ({product}) => {
     const {img, name, price, stock, star, key} = product;
     const navigate = useNavigate();
     const handleClick = id =>{
-        navigate(`/orderGlass/${id}`);
+        navigate(`/orderNewProduct/${id}`);
     };
 
     return (

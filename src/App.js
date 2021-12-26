@@ -56,6 +56,7 @@ function App() {
           <Route path="register" element={<Register></Register>}></Route>
           <Route path="order/:id" element={<PrivateRoute><OrderProduct></OrderProduct></PrivateRoute>}></Route>
           <Route path="orderGlass/:id" element={<PrivateRoute><OrderGlass></OrderGlass></PrivateRoute>}></Route>
+          <Route path="orderNewProduct/:id" element={<PrivateRoute><OrderProduct></OrderProduct></PrivateRoute>}></Route>
           <Route path="orderDetails/:id" element={<PrivateRoute><OrderDetails></OrderDetails></PrivateRoute>}></Route>
           <Route path="orderGlassDetails/:id" element={<PrivateRoute><OrderGlassDetails></OrderGlassDetails></PrivateRoute>}></Route>
           <Route path="*" element={<NotFound></NotFound>}></Route>
