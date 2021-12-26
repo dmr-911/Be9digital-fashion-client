@@ -30,6 +30,8 @@ import ManageProducts from './Pages/Dashboard/ManageProducts/ManageProducts';
 import OrderGlassDetails from './Pages/OrderGlassDetails/OrderGlassDetails';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import OrderNewProduct from './Pages/OrderNewProduct/OrderNewProduct';
+import OrderProductDetails from './Pages/OrderProductDetails/OrderProductDetails';
 
 function App() {
   return (
@@ -56,9 +58,10 @@ function App() {
           <Route path="register" element={<Register></Register>}></Route>
           <Route path="order/:id" element={<PrivateRoute><OrderProduct></OrderProduct></PrivateRoute>}></Route>
           <Route path="orderGlass/:id" element={<PrivateRoute><OrderGlass></OrderGlass></PrivateRoute>}></Route>
-          <Route path="orderNewProduct/:id" element={<PrivateRoute><OrderProduct></OrderProduct></PrivateRoute>}></Route>
+          <Route path="orderNewProduct/:id" element={<PrivateRoute><OrderNewProduct></OrderNewProduct></PrivateRoute>}></Route>
           <Route path="orderDetails/:id" element={<PrivateRoute><OrderDetails></OrderDetails></PrivateRoute>}></Route>
           <Route path="orderGlassDetails/:id" element={<PrivateRoute><OrderGlassDetails></OrderGlassDetails></PrivateRoute>}></Route>
+          <Route path="orderProductDetails/:id" element={<PrivateRoute><OrderProductDetails></OrderProductDetails></PrivateRoute>}></Route>
           <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>
       <Footer></Footer>
