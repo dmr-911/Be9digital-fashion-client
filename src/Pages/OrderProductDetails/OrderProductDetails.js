@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { Card, Col } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
-import useGlasses from '../../hooks/useGlasses';
 import OrderModal from '../OrderModal/OrderModal';
 
 const OrderProductDetails = () => {
     const {user} = useAuth();
     const {id} = useParams();
-    const {glasses} = useGlasses();
-    const matchedItem = glasses?.find(product => parseInt(product.key) === parseInt(id));
+    const [products, setProducts] = useState([]);
+    useEffect(()=>{
+        fetch('http://localhost:5000/newProducts')
+        .then(res => res.json())
+        .then(data => setProducts(data))
+    },[])
+    const matchedItem = products?.find(product => product.key === id);
 
     const date = new Date();
     const initialInfo = { buyerName: user.displayName, email: user.email, phone: '' };
@@ -27,7 +32,6 @@ const OrderProductDetails = () => {
     
   const handlePurchase = e => {
     e.preventDefault();
-    console.log(matchedItem);
     // collect data
     const order = {
         ...purchaseInfo,
@@ -54,7 +58,6 @@ const OrderProductDetails = () => {
             }
         });
 };
-
 
     return (
         <div className="bg-dark login-page py-5">
