@@ -41,7 +41,7 @@ const OrderDetails = () => {
     };
     setNewOrder(order);
     // send to the server
-    fetch('http://localhost:5000/orders', {
+    fetch('https://be9digital-market.herokuapp.com/orders', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

@@ -19,7 +19,7 @@ const MakeAdmin = () => {
     const handleAdminSubmit = e => {
         e.preventDefault()
         const user = { email };
-        fetch('http://localhost:5000/users/admin', {
+        fetch('https://be9digital-market.herokuapp.com/users/admin', {
             method: 'PUT',
             headers: {
                 'authorization': `Bearer ${token}`,

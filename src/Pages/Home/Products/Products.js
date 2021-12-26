@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Products.css';
 import ElectricProduct from '../../Explore/E_product/E_product';
 import { HashLink } from 'react-router-hash-link';
@@ -8,7 +8,7 @@ import { HashLink } from 'react-router-hash-link';
 const Products = () => {
     const [products, setProducts] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/e_products?home=home')
+        fetch('https://be9digital-market.herokuapp.com/e_products?home=home')
         .then(res => res.json())
         .then(data => setProducts(data))
     },[]);

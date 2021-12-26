@@ -7,7 +7,7 @@ const GlassProduct = ({glass}) => {
     const { user } = useAuth();
     const [glasses, setGlasses] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/glasses`)
+        fetch(`https://be9digital-market.herokuapp.com/glasses`)
             .then(res => res.json())
             .then(data => setGlasses(data))
     }, [user.email]);
@@ -16,7 +16,7 @@ const GlassProduct = ({glass}) => {
     const handleDelete = id =>{
         const proceed = window.confirm('Delete this product?')
         if (proceed) {
-            const uri = `http://localhost:5000/glass/${id}`;
+            const uri = `https://be9digital-market.herokuapp.com/glass/${id}`;
             fetch(uri, {
                 method: "DELETE",
             })

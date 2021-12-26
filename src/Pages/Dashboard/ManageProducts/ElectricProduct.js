@@ -7,7 +7,7 @@ const ElectricProducts = ({eProduct}) => {
     const { user } = useAuth();
     const [Products, setProducts] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/e_products`)
+        fetch(`https://be9digital-market.herokuapp.com/e_products`)
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [user.email]);
@@ -16,7 +16,7 @@ const ElectricProducts = ({eProduct}) => {
     const handleDelete = id =>{
         const proceed = window.confirm('Delete this product?')
         if (proceed) {
-            const uri = `http://localhost:5000/eProduct/${id}`;
+            const uri = `https://be9digital-market.herokuapp.com/eProduct/${id}`;
             fetch(uri, {
                 method: "DELETE",
             })

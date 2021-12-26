@@ -7,14 +7,14 @@ const MyOrders = () => {
     const { user } = useAuth();
     const [myOrders, setMyOrders] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user.email}`)
+        fetch(`https://be9digital-market.herokuapp.com/orders?email=${user.email}`)
             .then(res => res.json())
             .then(data => setMyOrders(data))
     }, [user.email]);
 
     const handleCancel = (id) => {
         const update = { status: "cancelled" }
-        const uri = `http://localhost:5000/myOrders/cancel/${id}`;
+        const uri = `https://be9digital-market.herokuapp.com/myOrders/cancel/${id}`;
         fetch(uri, {
             method: "PUT",
             headers:{
@@ -24,7 +24,7 @@ const MyOrders = () => {
         })
         .then( res => res.json() )
         .then(data => {
-            fetch(`http://localhost:5000/orders?email=${user.email}`)
+            fetch(`https://be9digital-market.herokuapp.com/orders?email=${user.email}`)
             .then(res => res.json())
             .then(data => setMyOrders(data))
         })
@@ -33,7 +33,7 @@ const MyOrders = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Confirm delete your order?')
         if (proceed) {
-            const uri = `http://localhost:5000/myOrders/${id}`;
+            const uri = `https://be9digital-market.herokuapp.com/myOrders/${id}`;
             fetch(uri, {
                 method: "DELETE",
             })

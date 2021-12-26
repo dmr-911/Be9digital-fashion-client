@@ -9,7 +9,7 @@ const OrderGlass = () => {
     const navigate = useNavigate();
 
     useEffect(()=>{
-        fetch('http://localhost:5000/glasses')
+        fetch('https://be9digital-market.herokuapp.com/glasses')
         .then(res => res.json())
         .then(data => setProducts(data))
     },[]);

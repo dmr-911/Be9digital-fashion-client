@@ -30,7 +30,7 @@ const Review = () => {
         const review = {
             ...reviewInfo
         };
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://be9digital-market.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -9,13 +9,13 @@ const ManageProducts = () => {
     const [glasses, setGlasses] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/e_products')
+        fetch('https://be9digital-market.herokuapp.com/e_products')
         .then(res => res.json())
         .then(data => setEProducts(data))
     },[]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/glasses')
+        fetch('https://be9digital-market.herokuapp.com/glasses')
         .then(res => res.json())
         .then(data => setGlasses(data))
     },[])

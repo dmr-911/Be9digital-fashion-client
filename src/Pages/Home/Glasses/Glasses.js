@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import Glass from '../../Explore/Glass/Glass';
 
 const Glasses = () => {
     const [products, setProducts] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/glasses?home=home')
+        fetch('https://be9digital-market.herokuapp.com/glasses?home=home')
         .then(res => res.json())
         .then(data => setProducts(data))
     },[]);
@@ -17,7 +17,7 @@ const Glasses = () => {
     }
     return (
         <Container>
-            <h1 className="fw-bold mt-5">Look for our <span className="text-danger">Electronic</span> products</h1>
+            <h1 className="fw-bold mt-5">Look for our <span className="text-danger">Glass</span> products</h1>
             <p className="text-secondary mb-5">We are offering most interesting things for nice and affordable prices. Check it out. </p>
                 <Row xs={1} md={4} className="g-3">
                     {

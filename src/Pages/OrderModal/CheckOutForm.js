@@ -14,7 +14,7 @@ const CheckOutForm = ({price, buyerName, email, id}) => {
     const [clientSecret, setClientSecret] = useState('');
 
     useEffect(()=>{
-        fetch('http://localhost:5000/create-payment-intent',{
+        fetch('https://be9digital-market.herokuapp.com/create-payment-intent',{
             method: 'POST',
             headers:{
                 'content-type' : 'application/json'
@@ -74,7 +74,7 @@ const CheckOutForm = ({price, buyerName, email, id}) => {
                 transaction : paymentIntent.client_secret.slice('_secret')[0],
                 last4 : paymentMethod.card.last4
             };
-              const url =  `http://localhost:5000/orders/${id}`;
+              const url =  `https://be9digital-market.herokuapp.com/orders/${id}`;
               fetch(url, {
                   method: 'PUT',
                   headers: {
