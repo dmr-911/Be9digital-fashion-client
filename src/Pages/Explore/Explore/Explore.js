@@ -2,14 +2,14 @@ import React from 'react';
 import Glasses from '../Glasses/Glasses';
 import useProducts from '../../../hooks/useProducts';
 import { Spinner } from 'react-bootstrap';
-import ElectricProducts from '../../Dashboard/ManageProducts/ElectricProduct';
 import NewProducts from '../NewProducts/NewProducts';
-import ElectricProducts from '../E_products/ElectricProducts';
+import ElectricProducts from '../E_products/E_products';
 
 const Explore = () => {
     const {products} = useProducts();
     return (
         <div>
+            <h2>All products</h2>
             {
                 products ?
                 <>

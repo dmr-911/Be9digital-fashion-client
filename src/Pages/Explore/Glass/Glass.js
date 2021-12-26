@@ -18,7 +18,7 @@ const Glass = ({product}) => {
 
     return (
         <Col>
-        <Card className="p-3">
+        <Card className="p-3 digital-cart">
             <Card.Text>
                 <div className="d-flex justify-content-between">
                     <div className="bg-danger text-white px-2">

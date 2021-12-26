@@ -15,7 +15,6 @@ const Glasses = () => {
 
     return (
         <Container>
-            <h3>Glasses</h3>
             <Row xs={1} md={4}>
                 {
                     products ? items.map(item => <ElectricProduct

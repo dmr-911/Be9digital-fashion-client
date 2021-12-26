@@ -13,7 +13,6 @@ const ElectricProducts = () => {
 
     return (
         <Container>
-            <h2>E_products</h2>
              <Row xs={1} md={4} className="g-4">
                {
                   products.length ? products.map(product => <ElectricProduct
