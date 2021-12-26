@@ -63,7 +63,7 @@ const OrderProductDetails = () => {
         <div className="bg-dark login-page py-5">
         <Col xs={12} md={5} className="mx-auto">
           <Card className="p-3">
-            <h3>Add Your Information</h3>
+          <h2 className="fw-bold">Add <span className="text-danger">information</span> page</h2>
             <div className="divider bg-info rounded mb-3 mx-auto"></div>
             <form onSubmit={handlePurchase}>
                 <input name="name" defaultValue={user.displayName} type="text" className="purchase-input" onBlur={handleOnBlur} placeholder="Name" />

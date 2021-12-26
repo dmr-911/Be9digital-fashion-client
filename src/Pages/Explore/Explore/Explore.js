@@ -9,13 +9,13 @@ const Explore = () => {
     const {products} = useProducts();
     return (
         <div>
-            <h2>All products</h2>
+             <h2 className="fw-bold mb-4">All <span className="text-danger">products</span> page</h2>
             {
                 products ?
                 <>
-                <NewProducts></NewProducts>
                 <ElectricProducts></ElectricProducts>
                 <Glasses></Glasses>
+                <NewProducts></NewProducts>
                 </>
                 :
                 <div className="d-flex justify-content-center align-items-center w-100" style={{height: '80vh'}}>

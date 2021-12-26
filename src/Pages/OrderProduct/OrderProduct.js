@@ -20,7 +20,7 @@ const OrderProduct = () => {
 
     return (
         <Container>
-            <h2>Product details</h2>
+             <h2 className="fw-bold">Product <span className="text-danger">details</span> page</h2>
             {
                 !item ?
                 <div className="d-flex justify-content-center align-items-center" style={{height: '90vh'}}>
