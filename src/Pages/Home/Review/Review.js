@@ -1,12 +1,13 @@
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
 import Rating from 'react-rating';
+import './Review.css';
 
 const Review = ({review}) => {
     const {name, rating, comment} = review;
     return (
         <Col>
-        <Card className="p-3 digital-cart">
+        <Card className="p-3 review-card">
             <Card.Body>
             <Card.Title>{name.slice(0,24)}</Card.Title>
             <Card.Text>
