@@ -8,7 +8,7 @@ import './NewProducts.css';
 const NewProducts = () => {
     const [products, setProducts] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/newProducts')
+        fetch('https://be9digital-market.herokuapp.com/newProducts')
         .then(res => res.json())
         .then(data => setProducts(data))
     },[]);
