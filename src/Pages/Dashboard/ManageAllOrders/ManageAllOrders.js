@@ -46,7 +46,7 @@ const ManageAllOrders = () => {
 
     return (
         <div>
-        <h5>Manage All Orders</h5>
+         <h2 className="fw-bold">Manage <span className="text-danger">orders</span> page</h2>
         <Table responsive striped bordered hover variant="dark">
             <thead>
                 <tr>

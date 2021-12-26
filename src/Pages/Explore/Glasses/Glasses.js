@@ -15,7 +15,7 @@ const Glasses = () => {
 
     return (
         <Container id="glasses">
-            <Row xs={1} md={4}>
+            <Row xs={1} md={4} className="g-4 mt-4">
                 {
                     products ? items.map(item => <ElectricProduct
                     key={item.key}

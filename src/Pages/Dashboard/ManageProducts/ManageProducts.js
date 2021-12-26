@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Row } from 'react-bootstrap';
+import { Row, Spinner } from 'react-bootstrap';
 import ElectricProducts from './ElectricProduct';
 import GlassProduct from './GlassProduct';
 import './ManageProducts.css';
@@ -22,12 +22,20 @@ const ManageProducts = () => {
 
     return (
        <div>
+            <h2 className="fw-bold">Manage <span className="text-danger">products</span> page</h2>
            <Row sm={1} md={3} lg={4} className="g-3">
            {
-               eProducts.map(eProduct => <ElectricProducts
+               eProducts ? eProducts.map(eProduct => <ElectricProducts
                key={eProduct._id}
                eProduct = {eProduct}
                ></ElectricProducts>)
+               :
+               <div className="d-flex justify-content-center align-items-center w-100" style={{height: '80vh'}}>
+               <div>
+               <Spinner animation="grow" size="sm" />
+               <Spinner animation="grow" />
+               </div>
+                </div>
            }
            {
                glasses.map(glass => <GlassProduct

@@ -48,7 +48,7 @@ const MyOrders = () => {
 
     return (
         <div>
-            <h5>My Orders</h5>
+             <h2 className="fw-bold">My <span className="text-danger">orders</span> page</h2>
             <Table responsive striped bordered hover variant="dark">
                 <thead>
                     <tr>
@@ -81,7 +81,8 @@ const MyOrders = () => {
                             :
                             <>
                                 <Spinner animation="grow" size="sm" />
-                                <Spinner animation="grow" /></>
+                                <Spinner animation="grow" />
+                            </>
                     }
                 </tbody>
             </Table>

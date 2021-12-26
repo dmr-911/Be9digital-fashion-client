@@ -28,7 +28,7 @@ const AddOrder = () => {
         formData.append('stock', stock);
         formData.append('shipping', shipping);
 
-        fetch('https://be9digital-market.herokuapp.com/addProduct', {
+        fetch('http://localhost:5000/addProduct', {
                 method: 'POST',
                 body: formData
                 })
@@ -46,8 +46,8 @@ const AddOrder = () => {
         <>
       <div className="bg-dark login-page pt-2">
         <Col xs={12} md={5} className="mx-auto pb-2 w-75">
-          <Card className="p-3">
-            <h3>Add a product</h3>
+          <Card className="p-3 bg-dark">
+          <h3 className="fw-bold text-white">Add <span className="text-danger">product</span> page</h3>
             <div className="divider bg-info rounded mb-3 mx-auto"></div>
             {
                 !isLoading && <Form  onSubmit={handleAddItem}>
