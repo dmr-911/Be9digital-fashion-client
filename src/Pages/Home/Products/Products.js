@@ -3,6 +3,7 @@ import { Container, Row } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import './Products.css';
 import ElectricProduct from '../../Explore/E_product/E_product';
+import { HashLink } from 'react-router-hash-link';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -12,11 +13,11 @@ const Products = () => {
         .then(data => setProducts(data))
     },[]);
 
+
     return (
         <Container>
             <div className="d-flex justify-content-between">
-                <h3>Electronic Products</h3>
-                <NavLink to="/explore">See all</NavLink>
+            <h1 className="fw-bold my-5">Look for our <span className="text-danger">Electronic</span> products</h1>
             </div>
                 <Row xs={1} md={4} className="g-3">
                     {
@@ -26,6 +27,7 @@ const Products = () => {
                         ></ElectricProduct>)
                     }
                 </Row>
+                <button as={HashLink} className="btn-banner d-inline mt-5">See all</button>
         </Container>
     );
 };

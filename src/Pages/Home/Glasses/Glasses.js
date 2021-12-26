@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import Glass from '../../Explore/Glass/Glass';
 
 const Glasses = () => {
@@ -13,8 +14,7 @@ const Glasses = () => {
     return (
         <Container>
             <div className="d-flex justify-content-between">
-                <h3>Smart Glasses</h3>
-                <NavLink to="/explore">See all</NavLink>
+            <h1 className="fw-bold my-5">Look for our <span className="text-danger">Electronic</span> products</h1>
             </div>
                 <Row xs={1} md={4} className="g-3">
                     {
@@ -24,6 +24,7 @@ const Glasses = () => {
                         ></Glass>)
                     }
                 </Row>
+                <button as={HashLink} className="btn-banner d-inline mt-5">See all</button>
         </Container>
     );
 };

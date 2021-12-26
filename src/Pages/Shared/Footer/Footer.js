@@ -122,7 +122,7 @@ const Footer = () => {
           className="text-white py-5"
         >
               <small>
-                Copyright ©DMR 2021 Jewellery Heaven. All rights reserved.
+                Copyright ©DMR 2021 Be9digital Market. All rights reserved.
               </small>
 
         </Container>
