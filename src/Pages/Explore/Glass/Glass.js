@@ -19,18 +19,18 @@ const Glass = ({product}) => {
     return (
         <Col>
         <Card className="p-3 digital-cart">
-            <Card.Text>
+            <div>
                 <div className="d-flex justify-content-between">
                     <div className="bg-danger text-white px-2">
                         <span>5% off</span>
                     </div>
                     <span className="far fa-heart favorite"></span>
                 </div>
-            </Card.Text>
+            </div>
             <Card.Img variant="top" src={img.startsWith('http') ? img : `data:image/png;base64,${img}`} height="140" />
             <Card.Body>
             <Card.Title>{name.slice(0,24)}</Card.Title>
-            <Card.Text>
+            <div>
                 <div className="d-flex justify-content-between">
                     <div className="text-start">
                         <p><small>Price: ${price}</small></p>
@@ -47,7 +47,7 @@ const Glass = ({product}) => {
                         </p>
                     </div>
                 </div>
-            </Card.Text>
+            </div>
             <button className="btn-products" onClick={()=>handleClick(key)}><span className="me-2">{cart}</span>Order Now</button>
             </Card.Body>
         </Card>

@@ -11,39 +11,39 @@ const Features = () => {
                 <Col>
                 <Card className="p-3 digital-cart feature-card">
                     <Card.Body>
-                    <span className="feature mb-5"><i class="fas fa-headset fs-2"></i></span>
-                    <Card.Text>
-                        <div>
+                    <span className="feature mb-5"><i className="fas fa-headset fs-2"></i></span>
+                    <div>
+
                             <p className="fw-bold">Live support</p>
                             <p className="text-secondary">Realize importance of social proof in customer’s purchase decision.</p>
-                        </div>
-                    </Card.Text>
+
+                    </div>
                     </Card.Body>
                 </Card>
                 </Col>
                 <Col>
                 <Card className="p-3 digital-cart">
                     <Card.Body>
-                    <span className="feature mb-5"><i class="far fa-credit-card fs-2"></i></span>
-                    <Card.Text>
-                        <div>
+                    <span className="feature mb-5"><i className="far fa-credit-card fs-2"></i></span>
+                    <div>
+
                             <p className="fw-bold">Secure transaction</p>
                             <p className="text-secondary">Realize importance of social proof in customer’s purchase decision.</p>
-                        </div>
-                    </Card.Text>
+
+                    </div>
                     </Card.Body>
                 </Card>
                 </Col>
                 <Col>
                 <Card className="p-3 digital-cart">
                     <Card.Body>
-                    <span className="feature mb-5"><i class="fas fa-unlock-alt fs-2"></i></span>
-                    <Card.Text>
-                        <div>
+                    <span className="feature mb-5"><i className="fas fa-unlock-alt fs-2"></i></span>
+                    <div>
+
                             <p className="fw-bold">Information security</p>
                             <p className="text-secondary">Realize importance of social proof in customer’s purchase decision.</p>
-                        </div>
-                    </Card.Text>
+
+                    </div>
                     </Card.Body>
                 </Card>
                 </Col>
@@ -51,12 +51,10 @@ const Features = () => {
                 <Card className="p-3 digital-cart">
                     <Card.Body>
                     <span className="feature mb-5"><i className="fas fa-exclamation-triangle fs-2"></i></span>
-                    <Card.Text>
-                        <div>
+                    <div>
                             <p className="fw-bold">Live support</p>
                             <p className="text-secondary">Realize importance of social proof in customer’s purchase decision.</p>
-                        </div>
-                    </Card.Text>
+                    </div>
                     </Card.Body>
                 </Card>
                 </Col>

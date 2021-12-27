@@ -34,7 +34,7 @@ const GlassProduct = ({glass}) => {
             <Card.Img variant="top" src={img} height="140" />
             <Card.Body>
             <Card.Title>{name.slice(0,20)}</Card.Title>
-            <Card.Text>
+            <div>
                 <div className="d-flex justify-content-between">
                     <div className="text-start">
                         <p><small>Price: ${price}</small></p>
@@ -51,7 +51,7 @@ const GlassProduct = ({glass}) => {
                         </p>
                     </div>
                 </div>
-            </Card.Text>
+            </div>
             <Button variant="danger" onClick={()=>handleDelete(_id)}>Delete</Button>
             </Card.Body>
         </Card>

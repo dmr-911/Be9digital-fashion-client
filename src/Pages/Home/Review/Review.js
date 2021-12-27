@@ -10,7 +10,7 @@ const Review = ({review}) => {
         <Card className="px-3 review-card">
             <Card.Body>
             <Card.Title>{name.slice(0,24)}</Card.Title>
-            <Card.Text>
+            <div>
 
                     <div>
                         <p><small><Rating
@@ -23,7 +23,7 @@ const Review = ({review}) => {
                         </p>
                         <p title={comment}>{comment.slice(0,21)}...</p>
                 </div>
-            </Card.Text>
+            </div>
             </Card.Body>
         </Card>
         </Col>
