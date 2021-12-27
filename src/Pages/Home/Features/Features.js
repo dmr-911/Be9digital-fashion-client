@@ -50,7 +50,7 @@ const Features = () => {
                 <Col>
                 <Card className="p-3 digital-cart">
                     <Card.Body>
-                    <span className="feature mb-5"><i class="fas fa-exclamation-triangle fs-2"></i></span>
+                    <span className="feature mb-5"><i className="fas fa-exclamation-triangle fs-2"></i></span>
                     <Card.Text>
                         <div>
                             <p className="fw-bold">Live support</p>
