@@ -25,7 +25,7 @@ const ManageProducts = () => {
             <h2 className="fw-bold">Manage <span className="text-danger">products</span> page</h2>
            <Row sm={1} md={3} lg={4} className="g-3">
            {
-               eProducts ? eProducts.map(eProduct => <ElectricProducts
+               eProducts?.length ? eProducts.map(eProduct => <ElectricProducts
                key={eProduct._id}
                eProduct = {eProduct}
                ></ElectricProducts>)

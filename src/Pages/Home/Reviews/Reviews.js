@@ -21,7 +21,7 @@ const Reviews = () => {
             <Col className="m-0" style={{overflow: "hidden"}}>
             <Row xs={1} md={2} className="w-100 g-2 py-2" style={{backgroundColor : "#5f9ea0", minHeight : "425px"}}>
                 {
-                    reviews.length && reviews.map(review => <Review
+                    reviews?.length && reviews.map(review => <Review
                     key={review._id}
                     review={review}
                     ></Review>)

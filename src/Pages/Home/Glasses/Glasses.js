@@ -21,7 +21,7 @@ const Glasses = () => {
             <p className="text-secondary mb-5">We are offering most interesting things for nice and affordable prices. Check it out. </p>
                 <Row xs={1} md={4} className="g-3">
                     {
-                       products ? products.map(product => <Glass
+                       products?.length ? products.map(product => <Glass
                         key={product.key}
                         product={product}
                         ></Glass>)

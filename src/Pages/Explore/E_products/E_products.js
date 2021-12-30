@@ -15,7 +15,7 @@ const ElectricProducts = () => {
         <Container>
              <Row xs={1} md={4} className="g-4">
                {
-                  products.length ? products.map(product => <ElectricProduct
+                  products?.length ? products.map(product => <ElectricProduct
                    key={product.key}
                    product={product}
                    ></ElectricProduct>)

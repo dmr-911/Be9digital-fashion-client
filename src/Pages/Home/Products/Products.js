@@ -24,7 +24,7 @@ const Products = () => {
             <p className="text-secondary mb-5">We are offering most interesting things for nice and affordable prices. Check it out. </p>
                 <Row xs={1} md={4} className="g-3">
                     {
-                       products ? products.map(product => <ElectricProduct
+                       products?.length ? products.map(product => <ElectricProduct
                         key={product.key}
                         product={product}
                         ></ElectricProduct>)

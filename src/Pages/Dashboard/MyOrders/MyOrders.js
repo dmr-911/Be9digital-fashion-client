@@ -69,7 +69,7 @@ const MyOrders = () => {
                 </thead>
                 <tbody>
                     {
-                        myOrders.length ? myOrders.map(order => <tr key={order._id}>
+                        myOrders?.length ? myOrders.map(order => <tr key={order._id}>
                             <td>{order.buyerName}</td>
                             <td>{order.email}</td>
                             <td>{order.product}</td>
