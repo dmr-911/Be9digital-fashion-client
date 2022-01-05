@@ -6,7 +6,9 @@ import useAuth from '../../hooks/useAuth';
 import GoogleButton from 'react-google-button';
 
 const Register = () => {
-  const {isLoading, error, registerUser} = useAuth();
+  const {isLoading, error, registerUser, setError} = useAuth();
+  setError('');
+  
   const [registerData, setRegisterData] = useState({});
   const navigation = useNavigate();
     

@@ -8,6 +8,7 @@ import GoogleButton from 'react-google-button';
 
 const Login = () => {
   const { googleSignIn, emailSignIn, error, setError} = useAuth();
+  setError('');
 
   const navigate = useNavigate();
   const location = useLocation();
