@@ -28,7 +28,7 @@ const AddOrder = () => {
         formData.append('stock', stock);
         formData.append('shipping', shipping);
 
-        fetch('http://localhost:5000/addProduct', {
+        fetch('https://be9digital-market.herokuapp.com/addProduct', {
                 method: 'POST',
                 body: formData
                 })
