@@ -31,9 +31,11 @@ const CustomNav = () => {
             >
                 <Nav.Link as={HashLink} to="/home#home">Home</Nav.Link>
                 <Nav.Link as={HashLink} to="/explore">Explore</Nav.Link>
-                <Nav.Link as={HashLink} to="/dashboard">
-                Dashboard
-                </Nav.Link>
+                {
+                    user.email &&                 <Nav.Link as={HashLink} to="/dashboard">
+                    Dashboard
+                    </Nav.Link>
+                }
                 <Nav.Link as={HashLink} to="/about">
                 About Us
                 </Nav.Link>
