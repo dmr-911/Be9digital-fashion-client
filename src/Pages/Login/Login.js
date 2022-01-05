@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Card, Col, Form } from 'react-bootstrap';
+import { Button, Form, Container } from 'react-bootstrap';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './Login.css';
 // import {useDispatch, useSelector} from 'react-redux';
@@ -7,7 +7,7 @@ import useAuth from '../../hooks/useAuth';
 import GoogleButton from 'react-google-button';
 
 const Login = () => {
-  const { googleSignIn, emailSignIn} = useAuth();
+  const { googleSignIn, emailSignIn, error, setError} = useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -34,56 +34,54 @@ const Login = () => {
       .then(user =>{
         navigate(destination);
       })
+      .catch((error) => {
+        setError(error.message)
+      });
     }
 
 
 
     return (
-        <>
-        <div
-          className="login-page bg-dark py-5"
-          style={{ backgroundColor: "#394650" }}
-        >
-          <Col xs={12} md={5} className="mx-auto mt-5 mb-5">
-            <Card className="p-3">
-              <h3>Log in</h3>
-              <div className="divider bg-info rounded mb-3 mx-auto"></div>
-              <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Control
-                    name="email"
-                    type="email"
-                    placeholder="Enter email"
-                    className="border border-1 border-dark"
-                    onBlur={handleOnBlur}
-                  />
-                </Form.Group>
-  
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Control
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    className="border border-1 border-dark"
-                    onBlur={handleOnBlur}
-                  />
-                </Form.Group>
-                {/* {message && <small className="text-danger">{message}</small>} */}
-                <p className="fw-bold">
-                  New to our site ? Please create an account{" "}
-                  <Link to="/register"><i className="fas fa-sign-in">Register</i></Link>
-                </p>
-                <Button variant="success" type="submit">
-                  Login
-                </Button>
-              </Form>
-              <b className="my-3">Or</b>
-              <GoogleButton className="mx-auto my-2" onClick={handleGoogleSignIn}/>
-            </Card>
-          </Col>
-          <div className="divider bg-info rounded mx-auto"></div>
-        </div>
-      </>
+      <Container className="my-5">
+      <div className="login-form-container border border-1">
+          <div className="page-title text-center">
+              Login page
+          </div>
+          <p>Login using social network</p>
+          <GoogleButton className="mx-auto mb-4" onClick={handleGoogleSignIn}/>
+          <p>Or insert your account information : </p>
+          <form  onSubmit={handleSubmit} className="mb-3">
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Control
+              name="email"
+               className="green-form-email green-form-control" 
+               type="email" 
+               placeholder="Enter email" 
+               onBlur={handleOnBlur}
+               />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Control 
+              name="password"
+              className="green-form-password green-form-control" 
+              type="password" 
+              placeholder="Password" 
+              onBlur={handleOnBlur}
+              />
+          </Form.Group>
+          {/* <p><img src={message} alt="" />Forgot your <span style={{color : "#084c33"}}>Password ?</span></p> */}
+          <Button className="login-register-btn" variant="primary" type="submit">
+              Login
+          </Button>
+          </form>
+                {error && <small className="text-danger">{error}</small>}
+              <p className="fw-bold">
+               New to our site ? Please create an account{" "}
+               <Link to="/register"><i className="fas fa-sign-in">Register</i></Link>
+             </p>
+      </div>
+  </Container>
     );
 };
 

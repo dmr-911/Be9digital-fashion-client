@@ -18,3 +18,43 @@
     background-color: cadetblue;
     color: white;
 }
+.login-form-container{
+    max-width: 445px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgb(0, 0, 0);
+    background: #fff;
+    margin: auto;
+    padding: 0 50px 45px;
+}
+.page-title{
+    padding-top: 15px;
+    position: relative;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e9e9e9;
+    margin-bottom: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.page-title::before{
+    content: "";
+    position: absolute;
+    width: 47px;
+    height: 1px;
+    background: #0d7a52;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -1px;
+}
+.login-register-btn{
+    background : #0d7a52!important;
+    width: 100%;
+    font-size: 1rem;
+    text-align: center;
+    height: 44px;
+    border-radius: 3px;
+    border: none;
+
+}
+.login-register-btn:hover{
+    background: #254b3d!important;
+}
