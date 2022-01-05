@@ -72,7 +72,7 @@ const useFirebase=()=>{
         }
         setIsLoading(false);
       });
-    }, [auth, user]);
+    }, [auth]);
 
     useEffect(() => {
       fetch(`https://be9digital-market.herokuapp.com/users/${user.email}`)
