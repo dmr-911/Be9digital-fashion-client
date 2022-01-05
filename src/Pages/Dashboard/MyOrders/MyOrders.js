@@ -87,10 +87,7 @@ const MyOrders = () => {
                             ></OrderModal>
                         </tr>)
                             :
-                            <>
-                                <Spinner animation="grow" size="sm" />
-                                <Spinner animation="grow" />
-                            </>
+                                <div className="w-100 text-danger mx-auto my-5">No orders found</div>
                     }
                 </tbody>
             </Table>
