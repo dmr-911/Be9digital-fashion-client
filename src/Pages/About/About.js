@@ -2,13 +2,13 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Container, Row, Spinner } from "react-bootstrap";
-import AboutItem from "../AboutItem/Abouttem";
+import AboutItem from "../AboutItem/AboutItem";
 import "./About.css";
 
 const About = () => {
   const [about, setAbout] = useState({});
   useEffect(() => {
-    fetch("https://infinite-stream-42915.herokuapp.com/about")
+    fetch("./about.json")
       .then((res) => res.json())
       .then((data) => setAbout(data));
   }, []);
@@ -28,7 +28,7 @@ const About = () => {
       <div className="line mx-auto mb-3"></div>
       <div className="break-line mx-auto mb-3"></div>
       {about.length ? (
-        <Row xs={1} md={2} lg={3} className="g-3 mb-5">
+        <Row xs={1} md={2} className="g-3 mb-5">
           {about.map((item) => (
             <AboutItem key={item.id} item={item}></AboutItem>
           ))}
