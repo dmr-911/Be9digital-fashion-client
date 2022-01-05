@@ -70,7 +70,6 @@ const Login = () => {
               onBlur={handleOnBlur}
               />
           </Form.Group>
-          {/* <p><img src={message} alt="" />Forgot your <span style={{color : "#084c33"}}>Password ?</span></p> */}
           <Button className="login-register-btn" variant="primary" type="submit">
               Login
           </Button>
