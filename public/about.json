@@ -1,0 +1,42 @@
+[
+    {
+      "_id": "617c6587ae1b49942cc0ca75",
+      "id": "6159e3d2829266e574cffa39",
+      "index": 0,
+      "name": "Awards",
+      "info": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi bibendum imperdiet bibendum.",
+      "email": "kristinhart@ecratic.com",
+      "phone": "+1 (833) 505-3057",
+      "image": "https://i.ibb.co/hmyQsYn/1.png"
+    },
+    {
+      "_id": "617c6587ae1b49942cc0ca76",
+      "id": "6159e3d2f2c1aad10bccc681",
+      "index": 1,
+      "name": "Research",
+      "info": "tiam eget enim non magna vestibulum malesuada ut et lectus. Curabitur egestas risus massa, a malesuada erat ultrices non.",
+      "email": "norayates@ecratic.com",
+      "phone": "+1 (832) 600-3188",
+      "image": "https://i.ibb.co/CtZnCyB/2.png"
+    },
+    {
+      "_id": "617c6587ae1b49942cc0ca77",
+      "id": "6159e3d2dd2c47185b9ba007",
+      "index": 2,
+      "name": "Quick delivery",
+      "info": "Maecenas venenatis, turpis ac tincidunt convallis, leo enim ultrices tortor, at faucibus neque sapien ac elit. Curabitur ut ipsum odio.",
+      "email": "annabelleshannon@ecratic.com",
+      "phone": "+1 (883) 564-3020",
+      "image": "https://i.ibb.co/QYMsnzn/travel.jpg"
+    },
+    {
+      "_id": "617c6587ae1b49942cc0ca79",
+      "id": "6159e3d2be08b6ef0b844f3d",
+      "index": 4,
+      "name": "We Care for You",
+      "info": "Maecenas venenatis, turpis ac tincidunt convallis, leo enim ultrices tortor, at faucibus neque sapien ac elit. Curabitur ut ipsum odio.",
+      "email": "alliewhite@ecratic.com",
+      "phone": "+1 (969) 479-3760",
+      "image": "https://i.ibb.co/p1Q15X4/weCare.jpg"
+    }
+  ]
