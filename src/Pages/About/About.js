@@ -8,7 +8,7 @@ import "./About.css";
 const About = () => {
   const [about, setAbout] = useState({});
   useEffect(() => {
-    fetch("./about.json")
+    fetch("https://be9digital-market.herokuapp.com/about")
       .then((res) => res.json())
       .then((data) => setAbout(data));
   }, []);
