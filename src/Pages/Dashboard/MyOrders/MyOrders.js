@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Spinner, Table } from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 import OrderModal from '../../OrderModal/OrderModal';
 import './MyOrders.css';
