@@ -9,7 +9,7 @@ const Dashboard = () => {
     return (
         <Container fluid>
             <Row xs={1} md={2} className="my-3">
-                <Col xs={12} md={3} className="dashboard-heading sticky-top">
+                <Col xs={12} md={3} className="dashboard-heading">
                     <div style={{height: '80vh'}} className="d-flex justify-content-center align-items-center">
                         <div>
                     <h3 className="text-danger">Dashboard</h3>
