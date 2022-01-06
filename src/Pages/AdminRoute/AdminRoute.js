@@ -8,7 +8,12 @@ const AdminRoute = ({children}) => {
     const {user, admin} = useAuth();
     const location = useLocation();
     if (!admin) {
-      return <Spinner animation="border" />;
+      <div className="d-flex justify-content-center align-items-center w-100" style={{height: '80vh'}}>
+      <div>
+      <Spinner animation="grow" size="sm" />
+      <Spinner animation="grow" />
+      </div>
+       </div>
     }
   return user.email && admin ? children : <Navigate to="/"  state={{ from: location }}/>;
 };
