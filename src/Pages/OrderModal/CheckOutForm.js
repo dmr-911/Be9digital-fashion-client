@@ -2,6 +2,8 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 import { Button, Container, Spinner } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CheckOutForm = ({price, buyerName, email, id}) => {
     const stripe = useStripe();
@@ -12,6 +14,18 @@ const CheckOutForm = ({price, buyerName, email, id}) => {
     const [success, setSuccess] = useState('');
     const [process, setProcess] = useState(false);
     const [clientSecret, setClientSecret] = useState('');
+
+    const toastify = () =>{
+      toast.success('Paid!', {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+  };
 
     useEffect(()=>{
         fetch('https://be9digital-market.herokuapp.com/create-payment-intent',{
@@ -84,6 +98,7 @@ const CheckOutForm = ({price, buyerName, email, id}) => {
               })
               .then(res => res.json())
               .then(data => {
+                toastify(); 
                   navigate('/dashboard/myOrders');
               });
           }
@@ -120,7 +135,17 @@ const CheckOutForm = ({price, buyerName, email, id}) => {
             error && <p className='text-center fw-bold text-danger mt-3'>{error}</p>
         }
         {
-            success && <p className='text-center fw-bold text-success mt-3'>{success}</p>
+            success &&             <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+        />
         }
       </form>
       </Container>
