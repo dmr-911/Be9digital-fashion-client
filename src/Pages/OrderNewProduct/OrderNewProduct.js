@@ -37,12 +37,12 @@ const OrderNewProduct = () => {
                 :
             <Row xs={1} md={2} className="g-0">
                 <Col>
-                <Card style={{height: '250px'}} className="d-flex justify-content-center align-items-center" data-aos="flip-left">
+                <Card style={{height: '250px'}} className="d-flex justify-content-center align-items-center" data-aos="fade-up">
                     <Card.Img variant="top" src={`data:image/jpeg;base64,${item?.img}`} height="200px" className="w-50 mx-auto"/>
                 </Card>
                 </Col>
                 <Col>
-                <Card style={{height: '250px'}} className="d-flex justify-content-center align-items-center" data-aos="zoom-in">
+                <Card style={{height: '250px'}} className="d-flex justify-content-center align-items-center" data-aos="fade-up">
                     <Card.Body>
                     <Card.Title>{item?.name}</Card.Title>
                     <Card.Text>

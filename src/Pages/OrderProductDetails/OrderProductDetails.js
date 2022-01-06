@@ -66,12 +66,12 @@ const OrderProductDetails = () => {
           <h2 className="fw-bold">Add <span className="text-danger">information</span> page</h2>
             <div className="divider bg-info rounded mb-3 mx-auto"></div>
             <form onSubmit={handlePurchase}>
-                <input name="name" defaultValue={user.displayName} type="text" className="purchase-input" onBlur={handleOnBlur} placeholder="Name" />
-                <input name="email" defaultValue={user.email} type="email" className="purchase-input" onBlur={handleOnBlur} placeholder="email" />
-                <input name="phone" type="number" className="purchase-input" onBlur={handleOnBlur} placeholder="Phone" />
-                <input name="city" type="text" className="purchase-input" onBlur={handleOnBlur} placeholder="City" />
-                <input name="country" type="text" className="purchase-input" onBlur={handleOnBlur} placeholder="Country" />
-                <input type="submit" value="Purchase" className="purchase-input btn-danger" />
+                <input name="name" defaultValue={user.displayName} type="text" className="purchase-input" onBlur={handleOnBlur} placeholder="Name" required/>
+                <input name="email" defaultValue={user.email} type="email" className="purchase-input" onBlur={handleOnBlur} placeholder="email" required/>
+                <input name="phone" type="number" className="purchase-input" onBlur={handleOnBlur} placeholder="Phone" required/>
+                <input name="city" type="text" className="purchase-input" onBlur={handleOnBlur} placeholder="City" required/>
+                <input name="country" type="text" className="purchase-input" onBlur={handleOnBlur} placeholder="Country" required/>
+                <input type="submit" value="Purchase" className="purchase-input btn-danger" required/>
             </form>
           </Card>
         <OrderModal
