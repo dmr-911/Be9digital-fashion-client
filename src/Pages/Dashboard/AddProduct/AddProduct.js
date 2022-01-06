@@ -16,7 +16,7 @@ const AddOrder = () => {
     const [img, setImg] = useState(null);
 
     const toastify = () =>{
-      toast.success('Message sent!', {
+      toast.success('Product added!', {
           position: "top-center",
           autoClose: 1000,
           hideProgressBar: false,

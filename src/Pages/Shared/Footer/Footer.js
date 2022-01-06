@@ -31,9 +31,7 @@ const Footer = () => {
                 <b>About Jewellery Heaven</b>
               </div>
               <p className="">
-                Stay up to date with current travel guidelines for Bangladesh
-                abroad. Check the latest updates here. Domestic Travel Advisory
-                International Travel Advisory
+                Step up with Be9digital product. Your step one step can make us bigger and make the country digital. 
               </p>
               <div className="divider bg-info rounded my-3 mx-auto"></div>
             </Col>
@@ -50,7 +48,7 @@ const Footer = () => {
                 <b>CONTACT INFORMATION</b>
               </div>
               <p>
-                Stay up to date with current shop guidelines for India and
+                Stay up to date with current shop guidelines for Bangladesh and
                 abroad. Check the latest updates here.
               </p>
               <p>
@@ -80,7 +78,7 @@ const Footer = () => {
                 <b>RECENT POSTS</b>
               </div>
               <p className="mb-3">
-                Life is a beautiful journey not a destination
+                Life is a beautiful journey not a destination. Let's make that more easier and happier.
               </p>
               <p className="mb-3">Take only memories, leave only footprints</p>
               <div className="divider bg-info rounded my-3 mx-auto"></div>
