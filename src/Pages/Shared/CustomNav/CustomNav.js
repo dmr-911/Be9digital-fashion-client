@@ -11,13 +11,13 @@ const CustomNav = () => {
     const {user, logOut} = useAuth();
 
     return (
-        <Navbar variant="dark" bg="dark" expand="lg">
+        <Navbar variant="dark" expand="lg" className="sticky-top">
         <Container>
             <Navbar.Brand as={HashLink} to="/home" className="fw-bolder">
             <img
                 src={logo}
                 width="120"
-                height="40"
+                height="60"
                 className="d-inline-block align-top"
                 alt="logo"
             />

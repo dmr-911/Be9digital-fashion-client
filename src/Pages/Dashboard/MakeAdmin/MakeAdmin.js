@@ -44,7 +44,7 @@ const MakeAdmin = () => {
                 <Button type="submit" variant="success" className="my-2">Make Admin</Button>
 
                 <Modal show={show} onHide={handleClose}>
-                    <Modal.Body>Woohoo, Made Admin Successfully</Modal.Body>
+                    <Modal.Body>Wahoo, Made Admin Successfully</Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>
                             Close
