@@ -39,6 +39,7 @@ const MakeAdmin = () => {
 
     return (
         <div className="bg-dark" style={{height: '80vh'}}>
+            <h3>Make <span className="text-orrange">Admin</span></h3>
             <form onSubmit={handleAdminSubmit} className="d-flex flex-column justify-content-center align-items-center" style={{height: '90vh'}}>
                 <Form.Control onBlur={handleOnBlur} className="w-50 mx-auto" type="email" placeholder="Enter Email" />
                 <Button type="submit" variant="success" className="my-2">Make Admin</Button>
