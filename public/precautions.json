@@ -1,0 +1,22 @@
+[
+    {
+        "key" : 1,
+        "img" : "https://i.ibb.co/Sv2w7Qn/pre-3.png",
+        "title" : "AVOID DIRECT CONTACT"
+    },
+    {
+        "key" : 3,
+        "img" : "https://i.ibb.co/MsYjkvB/pre-1.png",
+        "title" : "WASH YOUR HANDS FOR 20 SEC"
+    },
+    {
+        "key" : 4,
+        "img" : "https://i.ibb.co/Ntz3Bg5/pre-2.png",
+        "title" : "WEAR A MASK IF AVAILABLE"
+    },
+    {
+        "key" : 2,
+        "img" : "https://i.ibb.co/nkQwgCM/pre-4.png",
+        "title" : "STAY AT HOME"
+    }
+]
