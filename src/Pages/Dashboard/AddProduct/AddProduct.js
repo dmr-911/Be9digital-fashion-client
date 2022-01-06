@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import { Button, Card, Col, Form } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 import './AddProduct.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddOrder = () => {
     const {isLoading} = useAuth();
@@ -12,6 +14,18 @@ const AddOrder = () => {
     const [star, setStar] = useState(0);
     const [shipping, setShipping] = useState(0);
     const [img, setImg] = useState(null);
+
+    const toastify = () =>{
+      toast.success('Message sent!', {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+  };
 
     const handleAddItem = e => {
         e.preventDefault();
@@ -35,7 +49,7 @@ const AddOrder = () => {
                 .then(res => res.json())
                 .then(data => {
                 if(data.insertedId){
-                    console.log('successfully added');
+                   toastify();
                 }
                 })
                 .catch(error => {
@@ -122,6 +136,17 @@ const AddOrder = () => {
             }
           </Card>
         </Col>
+        <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
       </div>
     </>
     );

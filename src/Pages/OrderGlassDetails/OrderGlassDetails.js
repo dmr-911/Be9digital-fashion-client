@@ -10,7 +10,7 @@ const OrderGlassDetails = () => {
     const {id} = useParams();
     const {glasses} = useGlasses();
     const matchedItem = glasses?.find(product => parseInt(product.key) === parseInt(id));
-    console.log(matchedItem);
+
 
     const date = new Date();
     const initialInfo = { buyerName: user.displayName, email: user.email, phone: '' };
@@ -28,7 +28,6 @@ const OrderGlassDetails = () => {
     
   const handlePurchase = e => {
     e.preventDefault();
-    console.log(matchedItem);
     // collect data
     const order = {
         ...purchaseInfo,

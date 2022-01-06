@@ -11,7 +11,6 @@ const OrderDetails = () => {
     const {id} = useParams();
     const {products} = useProducts();
     const matchedItem = products?.find(product => product.key === id);
-    console.log(matchedItem);
 
     const date = new Date();
     const initialInfo = { buyerName: user.displayName, email: user.email, phone: '' };
