@@ -11,7 +11,7 @@ const CustomNav = () => {
     const {user, logOut} = useAuth();
 
     return (
-        <Navbar variant="dark" style={{back}} expand="lg" className="sticky-top">
+        <Navbar variant="dark" style={{backgroundColor : 'black'}} expand="lg" className="sticky-top">
         <Container>
             <Navbar.Brand as={HashLink} to="/home" className="fw-bolder">
             <img
