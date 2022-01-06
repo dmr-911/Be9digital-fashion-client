@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Card, Col } from 'react-bootstrap';
 import './Glass.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import Rating from 'react-rating';
 import { useNavigate } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Glass = ({product}) => {
     const cart = <FontAwesomeIcon icon={faCartPlus} />
@@ -14,11 +16,13 @@ const Glass = ({product}) => {
         navigate(`/orderGlass/${id}`);
     }
 
-
+    useEffect(()=>{
+        AOS.init({duration: 1000})
+    });
 
     return (
         <Col>
-        <Card className="p-3 digital-cart">
+        <Card className="p-3 digital-cart" data-aos="fade-up">
             <div>
                 <div className="d-flex justify-content-between">
                     <div className="bg-danger text-white px-2">

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
 import Rating from 'react-rating';
 import useAuth from '../../../hooks/useAuth';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const GlassProduct = ({glass}) => {
     const { user } = useAuth();
@@ -11,6 +13,9 @@ const GlassProduct = ({glass}) => {
             .then(res => res.json())
             .then(data => setGlasses(data))
     }, [user.email]);
+    useEffect(()=>{
+        AOS.init({duration: 1000})
+    });
 
     const {img, name, price, stock, star, _id} = glass;
     const handleDelete = id =>{
@@ -30,7 +35,7 @@ const GlassProduct = ({glass}) => {
 
     return (
         <Col>
-        <Card className="p-2" style={{minHeight: '450px'}}>
+        <Card className="p-2" style={{minHeight: '450px'}} data-aos="fade-up">
             <Card.Img variant="top" src={img} height="140" />
             <Card.Body>
             <Card.Title>{name.slice(0,20)}</Card.Title>

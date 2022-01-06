@@ -15,7 +15,7 @@ const NewProducts = () => {
 
     return (
         <Container>
-            <Row xs={1} md={3} lg={4} className="g-4 mb-4">
+            <Row xs={1} md={3} lg={4} className="g-4 my-4">
             {
                products.map(product => <NewProduct
                key={product._id}
