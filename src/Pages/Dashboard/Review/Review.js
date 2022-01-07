@@ -3,17 +3,25 @@ import { Button, Form, Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import './Review.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Review = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
-    const [show, setShow] = useState(false);
-    
-    const handleClose = () => {
-        setShow(false);
-        navigate('/');
+
+    const toastify = () =>{
+        toast.success('Thanks for giving your valuable review!', {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
     };
-    const handleShow = () => setShow(true);
+
     const initialInfo = { name: user.displayName, rating: '', comment: '' };
     const [reviewInfo, setReviewInfo] = useState(initialInfo);
 
@@ -40,7 +48,7 @@ const Review = () => {
             .then(res => res.json())
             .then(resultData => {
                 if (resultData.insertedId) {
-                    handleShow();
+                    toastify();
                 }
             });
     }
@@ -63,14 +71,17 @@ const Review = () => {
                 </Form.Group>
                 <Button variant="primary" type="submit">Submit</Button>
             </Form>
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Body>Order Placed Successfully!</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                </Modal.Footer>
-            </Modal>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </div>
     );
 };
