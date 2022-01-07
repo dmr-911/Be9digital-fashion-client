@@ -1,16 +1,25 @@
 import React, { useState } from 'react';
-import { Button, Form, Modal } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 import './MakeAdmin.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MakeAdmin = () => {
     const [email, setEmail] = useState('');
-    const [show, setShow] = useState(false);
     const {token} = useAuth();
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    // const [success, setSuccess] = useState(false);
+    const toastify = () =>{
+        toast.success('Admin made successfully!', {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+    };
 
     const handleOnBlur = e => {
         setEmail(e.target.value);
@@ -31,7 +40,7 @@ const MakeAdmin = () => {
             .then(data => {
                 if (data.modifiedCount) {
                     // setSuccess(true);
-                    handleShow();
+                    toastify();
                     setEmail('');
                 }
             })
@@ -40,22 +49,22 @@ const MakeAdmin = () => {
     return (
         <div className="bg-dark" style={{height: '80vh'}}>
             <h3>Make <span className="text-orrange">Admin</span></h3>
-            <form onSubmit={handleAdminSubmit} className="d-flex flex-column justify-content-center align-items-center" style={{height: '90vh'}}>
+            <form onSubmit={handleAdminSubmit} className="" style={{height: '90vh'}}>
+                <h2 className='text-white'>Make Admin</h2>
                 <Form.Control onBlur={handleOnBlur} className="w-50 mx-auto" type="email" placeholder="Enter Email" />
                 <Button type="submit" variant="success" className="my-2">Make Admin</Button>
-
-                <Modal show={show} onHide={handleClose}>
-                    <Modal.Body>Wahoo, Made Admin Successfully</Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
-                            Close
-                        </Button>
-                        <Button variant="primary" onClick={handleClose}>
-                            Save Changes
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
             </form>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </div>
     );
 };
