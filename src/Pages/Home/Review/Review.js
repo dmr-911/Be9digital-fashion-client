@@ -9,7 +9,7 @@ const Review = ({review}) => {
         <Col className="px-3">
         <Card className="px-3 review-card">
             <Card.Body>
-            <Card.Title>{name.slice(0,24)}</Card.Title>
+            <Card.Title>{name.slice(0,18)}</Card.Title>
             <div>
 
                     <div>

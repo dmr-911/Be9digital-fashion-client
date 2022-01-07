@@ -13,6 +13,7 @@ const Precautions = () => {
     return (
         <Container>
             <h1 className="fw-bold mt-5">Important <span className="text-danger">Precautions </span> in pandemic</h1>
+            <p className="text-secondary mb-5">We do care for everyone's safety. Please maintain the safety rules.</p>
             <Row xs={1} md={3} lg={4} className="g-3 my-4">
                 {
                     items.map(item =><Precaution
