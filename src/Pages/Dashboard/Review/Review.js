@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form, Modal } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { Button, Form } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 import './Review.css';
 import { ToastContainer, toast } from 'react-toastify';
@@ -8,7 +7,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Review = () => {
     const { user } = useAuth();
-    const navigate = useNavigate();
 
     const toastify = () =>{
         toast.success('Thanks for giving your valuable review!', {
